@@ -15,7 +15,7 @@ enableSaving [ false, false ]; // Disable Save und Autosave
 _postEffects				= 0;			// Aktiviert die Post Effekte in der postEffects.sqf Datei
 _intro 						= 0;			// Aktiviert das Intro in der intro.sqf Datei
 _mission					= 1;			// Führt alles in der mission.sqf aus
-_serverInfoMenu				= 1;			// Führt alles in der mission.sqf aus
+_serverInfoMenu				= 0;			// Führt alles in der mission.sqf aus
 
 _vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1"
 _vArsenalMakerCount         = 3;            // Anzahl der kisten. Namen wären z.b. "vArsenal_1", "vArsenal_2" usw.
