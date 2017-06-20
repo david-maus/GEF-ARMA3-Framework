@@ -23,7 +23,6 @@ ___Alle Scripte / Einstellungen / Variablen einstellbar und schnell aktivier/dea
 - Basic und Advanced ACE Config integriert und auswählbar, kein lästiges setzen der ACE Module, es sei denn man will gezielt eine Einstellung überschreiben
 - Alle AUTigerGrad's Ambient Sounds intigriert
 - Respawn on Team players einstellbar
-- 
 
 
 
