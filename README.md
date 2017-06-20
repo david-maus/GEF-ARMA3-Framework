@@ -20,6 +20,10 @@ ___Alle Scripte / Einstellungen / Variablen einstellbar und schnell aktivier/dea
 - GEF Vehicle Delivery script for Spyders Vehiclespawner (Bringt das angeforderte Fahrzeug mit dem Helikopter, wenn nicht möglich per Paradrop)
 - Taskforce Radio Config
 - GEF Virtual Arsenal Maker (Erstellt für alle Kisten die vArsenal_1,2,3.... heißen das Virtual Arsenal)
+- Basic und Advanced ACE Config integriert und auswählbar, kein lästiges setzen der ACE Module, es sei denn man will gezielt eine Einstellung überschreiben
+- Alle AUTigerGrad's Ambient Sounds intigriert
+- Respawn on Team players einstellbar
+- 
 
 
 
