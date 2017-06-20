@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////// 							GEF MissionCreate Framework 1.0 								 ///////////
-///////////                                       David Maus		                                   	 ///////////
+///////////                             GEF MissionCreate Framework 1.0                                  ///////////
+///////////                                       David Maus                                             ///////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // init.sqf - Wird beim Start der Mission von Client und Server ausgeführt
 
@@ -12,10 +12,10 @@ enableSaving [ false, false ]; // Disable Save und Autosave
 //#################################################################################################################
 //------- Mission -------
 
-_postEffects				= 0;			// Aktiviert die Post Effekte in der postEffects.sqf Datei
-_intro 						= 0;			// Aktiviert das Intro in der intro.sqf Datei
-_mission					= 1;			// Führt alles in der mission.sqf aus
-_serverInfoMenu				= 0;			// Führt alles in der mission.sqf aus
+_postEffects                = 0;            // Aktiviert die Post Effekte in der postEffects.sqf Datei
+_intro                      = 0;            // Aktiviert das Intro in der intro.sqf Datei
+_mission                    = 1;            // Führt alles in der mission.sqf aus
+_serverInfoMenu             = 0;            // Führt alles in der mission.sqf aus
 
 _vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1"
 _vArsenalMakerCount         = 3;            // Anzahl der kisten. Namen wären z.b. "vArsenal_1", "vArsenal_2" usw.
@@ -24,53 +24,53 @@ _vArsenalMakerCount         = 3;            // Anzahl der kisten. Namen wären z
 //#################################################################################################################
 //------- Intel -------
 
-_timeMultiply				= 1;			// Aktiviert die custom Tag / Nacht Zeit
-_dayMultiply				= 4;			// Geschwindigkeit des Tages - 4 Entspricht 3 echten Stunden
-_nightMultiply				= 12;			// Geschwindkeit der Nacht - 12 Entspricht 1 echten Stunde
+_timeMultiply               = 1;            // Aktiviert die custom Tag / Nacht Zeit
+_dayMultiply                = 4;            // Geschwindigkeit des Tages - 4 Entspricht 3 echten Stunden
+_nightMultiply              = 12;           // Geschwindkeit der Nacht - 12 Entspricht 1 echten Stunde
 
-_fogLimiter 				= 0;			// FogLimiter aktivieren
-_fogLimiterInterval 		= 900;			// Zeitinterval für die Checks
-_fogLimiterMax 				= 0.2;			// Maximaler Fog
+_fogLimiter                 = 0;            // FogLimiter aktivieren
+_fogLimiterInterval         = 900;          // Zeitinterval für die Checks
+_fogLimiterMax              = 0.2;          // Maximaler Fog
 
 //#################################################################################################################
 //#################################################################################################################
 //------- Alive -------
 
-_aliveAutotaskFilter		= 1;			// Führt staticData.sqf aus. Hier werden Autotasks von Alive gefiltert
+_aliveAutotaskFilter        = 1;            // Führt staticData.sqf aus. Hier werden Autotasks von Alive gefiltert
 
 //#################################################################################################################
 //#################################################################################################################
 //------- Gameplay -------
 
-_r3fLogistic 				= 1;			// Aktiviere das R3F Logistiksystem
+_r3fLogistic                = 1;            // Aktiviere das R3F Logistiksystem
 
-_nvgOffLightOn				= 1;			// Entfernt alle nvgs und ir Laser von Opfor, fügt Lampen hinzu
+_nvgOffLightOn              = 1;            // Entfernt alle nvgs und ir Laser von Opfor, fügt Lampen hinzu
 
-_interiorLight				= 1;			// Interior Licht in Helikoptern aktivieren
-_interiorLightMultiply		= 5;			// Intensität des Lichtes
+_interiorLight              = 1;            // Interior Licht in Helikoptern aktivieren
+_interiorLightMultiply      = 5;            // Intensität des Lichtes
 
 //#################################################################################################################
 //#################################################################################################################
 //------- Settings -------
 
-_taskForceRadioConfig		= 1;			// Lade die TaskForceRadio Config
+_taskForceRadioConfig       = 1;            // Lade die TaskForceRadio Config
 
-_disableVCOMAIforAIR		= 1;			// Deaktiviert die VCOM AI für Lufteinheiten
+_disableVCOMAIforAIR        = 1;            // Deaktiviert die VCOM AI für Lufteinheiten
 
-_aslAll						= 1;			// Advanced SlingLoad Mod - Man kann alles slingloaden
+_aslAll                     = 1;            // Advanced SlingLoad Mod - Man kann alles slingloaden
 
 //#################################################################################################################
 //#################################################################################################################
 //------- Debug und Co -------
 
-_postProcessEditor 			= 0;			// Postprecess Editor aktivieren, sollte nur beim Missionsbau  an sein
+_postProcessEditor          = 0;            // Postprecess Editor aktivieren, sollte nur beim Missionsbau  an sein
 
 //#################################################################################################################
 //#################################################################################################################
 //------- Camera -------
 
-_thirdPersonInBase 			= 0;			// Erlaube ThirdPerson nur im Markerbereich / Geht noch nicht
-_thirdPersonInBaseMarker	= "blu_01";		// Markername wo ThirdPerson erlaubt sein soll
+_thirdPersonInBase          = 0;            // Erlaube ThirdPerson nur im Markerbereich / Geht noch nicht
+_thirdPersonInBaseMarker    = "blu_01";     // Markername wo ThirdPerson erlaubt sein soll
 
 //#################################################################################################################
 
