@@ -3,7 +3,7 @@
 
 
 
-
+[west, "rspn_base_01", "FHQ 01"] call BIS_fnc_addRespawnPosition;
 
 
 

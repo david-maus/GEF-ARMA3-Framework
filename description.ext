@@ -131,7 +131,7 @@ class Header
 //------- SFX Configs -------
 class CfgSFX
 {
-	
+
 	#include "config\SFX\custom.hpp"
 	#include "config\SFX\sfxAmbientEastern.hpp"
 	#include "config\SFX\sfxAmbientTanoa.hpp"
@@ -160,7 +160,14 @@ class CfgFunctions
 //#################################################################################################################
 
 
+//#################################################################################################################
+//#################################################################################################################
+//------- Server Info Menu -------
 
+#include "scripts\other\scarCODE\ServerInfoMenu\hpp\CfgServerInfoMenu.hpp"
+#include "scripts\other\scarCODE\ServerInfoMenu\hpp\RscDisplayServerInfoMenu.hpp"
+
+//#################################################################################################################
 
 
 
