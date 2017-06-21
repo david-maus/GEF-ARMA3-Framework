@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////// 							GEF MissionCreate Framework 1.0 								 ///////////
-///////////                                       David Maus		                                   	 ///////////
+///////////                             GEF MissionCreate Framework 1.0                                  ///////////
+///////////                                       David Maus                                             ///////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // scripts\_mission\mission.sqf - Hier jeglichen Code für die Mission eingeben. Tasks etc. z.b.
 
@@ -11,9 +11,9 @@
 //#################################################################################################################
 //------- Mission -------
 
-_briefing   				= 1;			// Aktviert die briefing.sqf
+_briefing                   = 1;            // Aktviert die briefing.sqf
 
-_tasks         				= 1;			// Aktviert das task scripting weiter unten
+_tasks                      = 1;            // Aktviert das task scripting weiter unten
 
 //#################################################################################################################
 
