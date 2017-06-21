@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=6;
+		nextID=17;
 	};
 	class MarkerIDProvider
 	{
@@ -17,22 +17,24 @@ class EditorData
 	class Camera
 	{
 		pos[]={14885.137,21.483494,16576.473};
-		dir[]={0.23380394,-0.22440571,0.94607574};
-		up[]={0.053840194,0.97448683,0.21786302};
-		aside[]={0.97083157,-1.6129343e-007,-0.2399237};
+		dir[]={0.48983359,-0.33862662,0.80342203};
+		up[]={0.17627959,0.94091153,0.2891328};
+		aside[]={0.8538596,1.5512342e-007,-0.5205878};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
 	"A3_Characters_F",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Characters_F_Exp_Civil",
+	"A3_Soft_F_Gamma_Hatchback_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=2;
+		items=4;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -44,6 +46,20 @@ class AddonsMetaData
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Soft_F_Gamma";
+			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -80,37 +96,8 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=7;
 		class Item0
-		{
-			dataType="Group";
-			side="West";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14888.1,17.921438,16580.523};
-					};
-					side="West";
-					flags=7;
-					class Attributes
-					{
-						isPlayer=1;
-					};
-					id=1;
-					type="B_Soldier_A_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=0;
-		};
-		class Item1
 		{
 			dataType="Group";
 			side="Civilian";
@@ -307,7 +294,7 @@ class Mission
 			};
 			id=2;
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Marker";
 			position[]={14887.038,0,16590.588};
@@ -319,7 +306,7 @@ class Mission
 			id=4;
 			atlOffset=-17.91;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Marker";
 			position[]={14913.789,0,16625.58};
@@ -330,6 +317,217 @@ class Mission
 			b=20;
 			id=5;
 			atlOffset=-17.9;
+		};
+		class Item3
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14872.165,17.911886,16618.58};
+						angles[]={0,0,6.2818937};
+					};
+					side="Civilian";
+					flags=6;
+					class Attributes
+					{
+						name="target_2D";
+					};
+					id=8;
+					type="C_man_1";
+					atlOffset=1.9073486e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=8;
+						item1=7;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=6;
+			atlOffset=1.9073486e-006;
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14872.167,19.360571,16618.531};
+				angles[]={0,0,6.2818937};
+			};
+			side="Civilian";
+			flags=6;
+			class Attributes
+			{
+				name="target_2";
+			};
+			id=7;
+			type="C_Hatchback_01_F";
+			atlOffset=1.9073486e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="Enh_featureType";
+					expression="_this setFeatureType (parseNumber _value)";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="0";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Enh_onKilledEvent";
+					expression="if !(_value == 'false') then {_this addEventHandler ['killed',_value]}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="false";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="Enh_onRespawnEvent";
+					expression="if !(_value == 'false') then {_this addEventHandler ['respawn',_value]}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="false";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""FirstAidKit""],[4]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Enh_onDamagedEvent";
+					expression="if !(_value == 'false') then {_this addEventHandler ['dammaged',_value]}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="false";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item5
+		{
+			dataType="Marker";
+			position[]={14871.006,0,16620.549};
+			name="task_3_marker";
+			markerType="ELLIPSE";
+			type="ellipse";
+			a=20;
+			b=20;
+			id=13;
+			atlOffset=-17.911259;
+		};
+		class Item6
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={14888.064,17.921438,16579.758};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+					};
+					id=16;
+					type="B_soldier_AT_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=15;
 		};
 	};
 };

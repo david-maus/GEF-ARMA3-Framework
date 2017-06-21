@@ -59,6 +59,8 @@ if (!isServer) exitWith {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // - Code hier
+// Alle Tasks importieren
+#include "tasks\taskList.sqf"
 
 
 
@@ -74,88 +76,39 @@ if (!isServer) exitWith {};
 
 
 
-/// Tasktypes - Symbole
-/*
-attack
-default
-defend
-destroy
-download
-exit
-heal
-interact
-kill
-meet
-move
-move1
-move2
-move3
-move4
-move5
-navigate
-rearm
-refuel
-repair
-run
-scout
-search
-talk
-talk1
-talk2
-talk3
-talk4
-talk5
-target
-upload
-walk
-armor
-intel
-map
-radio
-rifle
-whiteboard
-*/
-
-
-
-
-_filter         = west;
-_taskId         = "task_1";
-_description    = "Töten Sie die Zielperson in dem <marker name='task_1_marker'>Gebiet</marker>";
-_title          = "Töten Sie die Zielperson";
-_shortTitle     = "";
-_target         = "";
-_initial        = "assigned";
-_type           = "kill";
-
-[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
 
 
 
 
 
-_filter         = west;
-_taskId         = "task_2";
-_description    = "Gehen Sie in das <marker name='task_2_marker'>Zielgebiet</marker>";
-_title          = "Gehen Sie zum Treffpunkt";
-_shortTitle     = "";
-_target         = "";
-_initial        = "assigned";
-_type           = "move1";
-
-[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
 
 
 
+// Tasks die von Anfang an exisiteren sollen
+call _task_1;
 
 
-// Prüfe ob target_1 noch lebt, wenn tot setze task_1 auf erledigt
-[target_1, "task_1"] execVM "scripts\_mission\helper\isAlive.sqf";
+////////////////// Scripte für die tasks
+
+// Prüfe ob target_1 noch lebt, wenn tot setze task_1 auf erledigt und erstelle _task_2 (wenn angegeben)
+[target_1, "task_1", _task_2] execVM "scripts\_mission\helper\isAlive.sqf";
+
+
+// Prüfe ob Einheit im Markerbereich ist, wenn ja setze task_2 auf erledigt und erstelle _task_3 (wenn angegeben)
+["task_2_marker", "task_2", _task_3] execVM "scripts\_mission\helper\inDistance.sqf";
+
+
+// Prüfe ob target_2 noch lebt, wenn tot setze task_3 auf erledigt und erstelle _task_4 (wenn angegeben)
+[target_2, "task_3", ""] execVM "scripts\_mission\helper\isAlive.sqf";
 
 
 
 
-["task_2_marker", "task_2"] execVM "scripts\_mission\helper\inDistance.sqf";
+
+
+
+
+
 
 
 

@@ -32,7 +32,7 @@ if (isDedicated) exitWith {};
 
 waitUntil {!isNull player};
 
-systemChat "Interior Lighting: Loading";
+//systemChat "Interior Lighting: Loading";
 
 diag_log "IL starting";
 
@@ -533,4 +533,4 @@ if (IL_Debug) then {player sideChat format ["IL Respawn EventHandler Added, #%1"
 
 IL_Loaded = true;
 diag_log "IL ready";
-systemChat "Interior Lighting: Initialized";
+//systemChat "Interior Lighting: Initialized";

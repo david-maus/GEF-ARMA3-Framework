@@ -1,0 +1,95 @@
+/// Tasktype Symbole
+/*
+attack
+default
+defend
+destroy
+download
+exit
+heal
+interact
+kill
+meet
+move
+move1
+move2
+move3
+move4
+move5
+navigate
+rearm
+refuel
+repair
+run
+scout
+search
+talk
+talk1
+talk2
+talk3
+talk4
+talk5
+target
+upload
+walk
+armor
+intel
+map
+radio
+rifle
+whiteboard
+*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+_task_1 =
+
+{
+_filter         = west;
+_taskId         = "task_1";
+_description    = "Töten Sie die Zielperson in dem <marker name='task_1_marker'>Gebiet</marker>";
+_title          = "Töten Sie die Zielperson";
+_shortTitle     = "";
+_target         = "";
+_initial        = "assigned";
+_type           = "kill";
+
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+_task_2 =
+
+{
+_filter         = west;
+_taskId         = "task_2";
+_description    = "Gehen Sie in das <marker name='task_2_marker'>Zielgebiet</marker>";
+_title          = "Gehen Sie zum Treffpunkt";
+_shortTitle     = "";
+_target         = "";
+_initial        = "assigned";
+_type           = "move1";
+
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+_task_3 =
+
+{
+_filter         = west;
+_taskId         = "task_3";
+_description    = "Zerstören Sie das <marker name='task_3_marker'>Fahrzeug</marker>";
+_title          = "Zerstören Sie das Fahrzeug";
+_shortTitle     = "";
+_target         = "";
+_initial        = "assigned";
+_type           = "destroy";
+
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+
+};
