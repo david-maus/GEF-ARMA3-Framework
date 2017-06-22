@@ -54,7 +54,7 @@ _target         = "";
 _initial        = "assigned";
 _type           = "kill";
 
-[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\helper\taskCreate.sqf";
 
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +72,7 @@ _target         = "";
 _initial        = "assigned";
 _type           = "move1";
 
-[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\helper\taskCreate.sqf";
 
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,6 +90,9 @@ _target         = "";
 _initial        = "assigned";
 _type           = "destroy";
 
-[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\tasks\taskCreate.sqf";
+[_filter,_taskId,_description,_title,_shortTitle,_target,_initial,_type] execVM "scripts\_mission\helper\taskCreate.sqf";
 
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

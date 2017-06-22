@@ -61,14 +61,7 @@ if (!isServer) exitWith {};
 // - Code hier
 // Alle Tasks importieren
 #include "tasks\taskList.sqf"
-
-
-
-
-
-
-
-
+#include "helper\taskHelper.sqf"
 
 
 
@@ -88,18 +81,64 @@ if (!isServer) exitWith {};
 call _task_1;
 
 
+
+
+
+
+
 ////////////////// Scripte für die tasks
 
-// Prüfe ob target_1 noch lebt, wenn tot setze task_1 auf erledigt und erstelle _task_2 (wenn angegeben)
-[target_1, "task_1", _task_2] execVM "scripts\_mission\helper\isAlive.sqf";
 
 
-// Prüfe ob Einheit im Markerbereich ist, wenn ja setze task_2 auf erledigt und erstelle _task_3 (wenn angegeben)
-["task_2_marker", "task_2", _task_3] execVM "scripts\_mission\helper\inDistance.sqf";
+// 1
+[
+    "!alive target_1 && !alive target_2",   // Condition
+
+    "task_1",                               // Task ID die erfüllt werden soll
+
+    _task_2,                                // Task (Funktionsname aus der Tasklist) aufrufen der als nächstes erscheinen soll
+
+    "hint 'double kill!';"                  // Coder der danach ausgeführt werden soll
+
+] call _taskHelper;
 
 
-// Prüfe ob target_2 noch lebt, wenn tot setze task_3 auf erledigt und erstelle _task_4 (wenn angegeben)
-[target_2, "task_3", ""] execVM "scripts\_mission\helper\isAlive.sqf";
+
+
+
+
+//2
+[
+    "{_x distance getMarkerPos 'task_2_marker' < 20} count allPlayers > 0", // Condition
+
+    "task_2",                                                               // Task ID die erfüllt werden soll
+
+    _task_3,                                                                // Task (Funktionsname aus der Tasklist) aufrufen der als nächstes erscheinen soll
+
+    "hint 'nice move';"                                                     // Coder der danach ausgeführt werden soll
+
+] call _taskHelper;
+
+
+
+
+
+
+
+
+//2
+[
+    "!alive vehicleTarget_1",       // Condition
+
+    "task_3",                       // Task ID die erfüllt werden soll
+
+    "",                             // Task (Funktionsname aus der Tasklist) aufrufen der als nächstes erscheinen soll
+
+    "hint 'booom shakalaka!';"      // Coder der danach ausgeführt werden soll
+
+] call _taskHelper;
+
+
 
 
 

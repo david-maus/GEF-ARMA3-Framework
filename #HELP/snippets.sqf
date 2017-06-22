@@ -23,7 +23,6 @@
 
 
 // Ojekt "einsammeln"
-
 this removeAction myaction;
 deletevehicle this;
 hint "you have collected the laptop!";
