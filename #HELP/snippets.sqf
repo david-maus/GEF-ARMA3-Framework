@@ -2,7 +2,7 @@
 
 
 
-
+// Spawnpoints
 [west, "rspn_base_01", "FHQ 01"] call BIS_fnc_addRespawnPosition;
 
 
@@ -18,3 +18,13 @@
 // Alive Combat Support deaktiviere und iwedeherstellen (Empfang des Tablets simulieren z.b.)
 ["ALiVE_sup_combatsupport"] call ALiVE_fnc_pauseModule;
 ["ALiVE_sup_combatsupport"] call ALiVE_fnc_unPauseModule;
+
+
+
+
+// Ojekt "einsammeln"
+
+this removeAction myaction;
+deletevehicle this;
+hint "you have collected the laptop!";
+exit;

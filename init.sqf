@@ -17,8 +17,8 @@ _intro                      = 0;            // Aktiviert das Intro in der intro.
 _mission                    = 1;            // Führt alles in der mission.sqf aus
 _serverInfoMenu             = 0;            // Führt alles in der mission.sqf aus
 
-_vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1"
-_vArsenalMakerCount         = 3;            // Anzahl der kisten. Namen wären z.b. "vArsenal_1", "vArsenal_2" usw.
+_vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1,2,3,4,5 etc."
+_vArsenalMakerCount         = 10;           // Anzahl der kisten. Nur erhöhen wenn benötigt, kann sonst so bleiben.
 
 //#################################################################################################################
 //#################################################################################################################
@@ -63,7 +63,7 @@ _aslAll                     = 1;            // Advanced SlingLoad Mod - Man kann
 //#################################################################################################################
 //------- Debug und Co -------
 
-_postProcessEditor          = 0;            // Postprecess Editor aktivieren, sollte nur beim Missionsbau  an sein
+_postProcessEditor          = 1;            // Postprecess Editor aktivieren, sollte nur beim Missionsbau  an sein
 
 //#################################################################################################################
 //#################################################################################################################

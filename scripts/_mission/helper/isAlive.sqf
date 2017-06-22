@@ -11,7 +11,14 @@ _nextTask = _this select 2;
     {
         [_this select 1, "Succeeded"] call FHQ_fnc_ttSetTaskState;
 
-        call (_this select 2);
+
+        if (isNil (_this select 2)) then {
+
+        }
+        else
+        {
+            call (_this select 2);
+        };
 
 
     },
