@@ -1,10 +1,8 @@
-class RscTitles
 
-{
 
 	titles[]={};
 
-	class intro
+	class customIntro01
 
 	{
 
@@ -18,13 +16,13 @@ class RscTitles
 
 	  	fadeout=1.9;
 
-	  	name="intro";
+	  	name="customIntro01";
 
 	  	controls[]={"title1"};
 
 
 
-	  	class title1
+	  	class customTitle01
 
 		{
 
@@ -57,5 +55,3 @@ class RscTitles
 		};
 
 	};
-
-};

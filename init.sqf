@@ -8,7 +8,6 @@ enableSaving [ false, false ]; // Disable Save und Autosave
 
 
 
-
 //#################################################################################################################
 //------- Mission -------
 
@@ -19,6 +18,9 @@ _serverInfoMenu             = 0;            // Führt alles in der mission.sqf a
 
 _vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1,2,3,4,5 etc."
 _vArsenalMakerCount         = 10;           // Anzahl der kisten. Nur erhöhen wenn benötigt, kann sonst so bleiben.
+
+
+_tpw                        = 1;           // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
 
 //#################################################################################################################
 //#################################################################################################################
@@ -290,6 +292,20 @@ if (_nvgOffLightOn == 1) then
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////// Entfernt alle nvgs und Ir Laser von Opfor im 30 sekunden Interval
+if (_tpw == 1) then
+{
+[[]] execvm "scripts\other\TPW\tpw_core.sqf";
+0 = [60,1,0] execvm "scripts\other\TPW\tpw_radio.sqf";
+0 = [1,1,1,1,1,0,0,0] execvm "scripts\other\TPW\tpw_soap.sqf";
+0 = [4,18,5,25,5,50,5,0.1,[250,220,100],0.8,0.05,1,0.075] execvm "scripts\other\TPW\tpw_fireflies.sqf";
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

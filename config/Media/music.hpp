@@ -1,8 +1,6 @@
-class cfgMusic
-{
-   class track1
+
+   class customMusic01
    {
-        name = "track1";
-        sound[] = {"media\music\intro\music.ogg", db+5,1}; 
+        name = "customTrack01";
+        sound[] = {"media\music\intro\music.ogg", db+5,1};
     };
-};
