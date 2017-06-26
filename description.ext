@@ -159,7 +159,7 @@ class CfgSounds
 {
 	#include "config\SOUNDS\custom.hpp"
 	#include "scripts\other\TPW\TPW_SOUNDS\sounds.hpp"
-	#include "scripts\other\TPW\TPW_AMBIENCE\config.hpp"
+	#include "scripts\other\TPW\TPW_AMBIENCE\sounds.hpp"
 };
 //#################################################################################################################
 //#################################################################################################################

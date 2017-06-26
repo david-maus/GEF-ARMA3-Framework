@@ -77,6 +77,17 @@ if (!isServer) exitWith {};
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 // Tasks die von Anfang an exisiteren sollen
 call _task_1;
 
@@ -92,6 +103,8 @@ call _task_1;
 
 // 1
 [
+    "",                                     // Condition für den Task der vorher erfüllt sein muss bevor nachfolgendes ausgelöst wird
+
     "!alive target_1 && !alive target_2",   // Condition
 
     "task_1",                               // Task ID die erfüllt werden soll
@@ -109,6 +122,8 @@ call _task_1;
 
 //2
 [
+    "['task_1'] call FHQ_fnc_ttIsTaskCompleted && ",                        // Condition für den Task der vorher erfüllt sein muss bevor nachfolgendes ausgelöst wird
+
     "{_x distance getMarkerPos 'task_2_marker' < 20} count allPlayers > 0", // Condition
 
     "task_2",                                                               // Task ID die erfüllt werden soll
@@ -126,17 +141,33 @@ call _task_1;
 
 
 
-//2
+//3
 [
-    "!alive vehicleTarget_1",       // Condition
+    "['task_2'] call FHQ_fnc_ttIsTaskCompleted && ",    // Condition für den Task der vorher erfüllt sein muss bevor nachfolgendes ausgelöst wird
 
-    "task_3",                       // Task ID die erfüllt werden soll
+    "!alive vehicleTarget_1",                           // Condition
 
-    "",                             // Task (Funktionsname aus der Tasklist) aufrufen der als nächstes erscheinen soll
+    "task_3",                                           // Task ID die erfüllt werden soll
 
-    "hint 'booom shakalaka!';"      // Coder der danach ausgeführt werden soll
+    "",                                                 // Task (Funktionsname aus der Tasklist) aufrufen der als nächstes erscheinen soll
+
+    "hint 'booom shakalaka!';"                          // Coder der danach ausgeführt werden soll
 
 ] call _taskHelper;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
