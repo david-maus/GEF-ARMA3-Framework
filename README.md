@@ -8,7 +8,7 @@ ___Alle Scripte / Einstellungen / Variablen einstellbar und schnell aktivier/dea
 
 
 ####Inhalt
-- [R3F Logistics scripts](https://forums.bistudio.com/forums/topic/170033-r3f-logistics/) - Logistik & Basebuilding Script
+- [R3F Logistics scripts](https://forums.bistudio.com/forums/topic/170033-r3f-logistics/) - Logistik & Basebuilding Script (Für Alive editiert, das "Alive (Required)" Modul muss den Namen "ALiVE_SYS_LOGISTICS" haben
 - [FHQ Tasktracker](https://forums.bistudio.com/forums/topic/142763-fhq-tasktracker/) - JIP & MP Taskframework
 - [GFPPE Postprocess Editor](https://forums.bistudio.com/forums/topic/176057-gf-post-process-effect-editor/) - Arma3 Post Effects Live Editor für Missionen
 - [scarCODE ServerInfoMenu](https://github.com/IT07/ArmA3_exile_ServerInfoMenu) - (Editiert) Server Infos beim joinen und/oder per actionmenu
