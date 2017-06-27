@@ -27,3 +27,15 @@ this removeAction myaction;
 deletevehicle this;
 hint "you have collected the laptop!";
 exit;
+
+
+
+
+
+
+// Alive Support markerAlpha
+// Benutzung - Nicht benötigtes wie die artillerysachen auf "" stellen
+[unitname, "CallsSign", "CAS/TRANSPORT/HYBRID/ARTY", slingload (true/false), "Containeranzahl", "ARTY HE Anzahl", "ARTY Smoke Anzahl", "ARTY GUIDED Anzahl", "ARTY Rockets Anzahl"] execVM "scripts\other\aliveSupport.sqf";
+
+// Transport Beispiel:
+[unitname, "HORSE ONE", "TRANSPORT", true, "0", "", "", "", ""] execVM "scripts\other\aliveSupport.sqf";

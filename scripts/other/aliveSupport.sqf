@@ -19,10 +19,10 @@ if (_type == "CAS") then
 	{
 
 
-	this setvariable ["CS_TYPE","CAS"];
-	this setvariable ["CS_CALLSIGN",_call];
-	this setvariable ["CS_HEIGHT",_height];
-	this setVariable ["CS_SLINGLOADING", _slingload];
+	_unitName setvariable ["CS_TYPE","CAS"];
+	_unitName setvariable ["CS_CALLSIGN",_call];
+	_unitName setvariable ["CS_HEIGHT",_height];
+	_unitName setVariable ["CS_SLINGLOADING", _slingload];
 
 
 
@@ -32,11 +32,11 @@ if (_type == "TRANSPORT") then
 
 	{
 
-this setvariable ["CS_TYPE","TRANSPORT"];
-this setvariable ["CS_CALLSIGN",_call];
-this setvariable ["CS_HEIGHT",_height];
-this setVariable ["CS_SLINGLOADING", _slingload];
-this setVariable ["CS_CONTAINERS",_container];
+_unitName setvariable ["CS_TYPE","TRANSPORT"];
+_unitName setvariable ["CS_CALLSIGN",_call];
+_unitName setvariable ["CS_HEIGHT",_height];
+_unitName setVariable ["CS_SLINGLOADING", _slingload];
+_unitName setVariable ["CS_CONTAINERS",_container];
 
 	}
 
@@ -45,11 +45,11 @@ if (_type == "HYBRID") then
 
 	{
 
-this setvariable ["CS_TYPE","HYBRID"];
-this setvariable ["CS_CALLSIGN",_call];
-this setvariable ["CS_HEIGHT",_height];
-this setVariable ["CS_SLINGLOADING", _slingload];
-this setVariable ["CS_CONTAINERS",_container];
+_unitName setvariable ["CS_TYPE","HYBRID"];
+_unitName setvariable ["CS_CALLSIGN",_call];
+_unitName setvariable ["CS_HEIGHT",_height];
+_unitName setVariable ["CS_SLINGLOADING", _slingload];
+_unitName setVariable ["CS_CONTAINERS",_container];
 
 	}
 
@@ -59,12 +59,12 @@ if (_type == "ARTY") then
 
 	{
 
-this setvariable ["CS_TYPE","ARTY"];
-this setvariable ["CS_CALLSIGN",_call];
-this setvariable ["CS_HEIGHT",_height];
-this setvariable ["CS_ARTILLERY_HE",_artyHE];
-this setvariable ["CS_ARTILLERY_SMOKE",_artySMOKE];
-this setvariable ["CS_ARTILLERY_GUIDED",_artyGUIDED];
-this setvariable ["CS_ARTILLERY_ROCKETS",_artyROCKETS];
+_unitName setvariable ["CS_TYPE","ARTY"];
+_unitName setvariable ["CS_CALLSIGN",_call];
+_unitName setvariable ["CS_HEIGHT",_height];
+_unitName setvariable ["CS_ARTILLERY_HE",_artyHE];
+_unitName setvariable ["CS_ARTILLERY_SMOKE",_artySMOKE];
+_unitName setvariable ["CS_ARTILLERY_GUIDED",_artyGUIDED];
+_unitName setvariable ["CS_ARTILLERY_ROCKETS",_artyROCKETS];
 
 	}
