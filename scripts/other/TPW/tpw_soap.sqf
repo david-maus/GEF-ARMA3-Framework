@@ -403,13 +403,13 @@ tpw_soap_fnc_ambientmusic =
 
 		// Music
 		_sel = floor (random tpw_soap_songs);
-		_clip = format ["%1s%2.ogg",tpw_soap_path,_sel + 1];
+		_clip = format ["%1s%2.ogg",root + tpw_soap_path,_sel + 1];
 		_len = tpw_soap_songlength select _sel;
 
 		// Play user song from scripts\other\TPW\@TPW_MODS\music
 		if ((tpw_soap_usermusic >0) && {random 10 < 5}) then
 			{
-			_clip = format ["scripts\other\TPW\@TPW_MODS\music\%1.ogg",floor (random tpw_soap_usermusic) + 1];
+			_clip = format [root + "scripts\other\TPW\@TPW_MODS\music\%1.ogg",floor (random tpw_soap_usermusic) + 1];
 			_len = 180;
 			};
 		_finish = diag_ticktime + _len - 5;
@@ -424,6 +424,10 @@ tpw_soap_fnc_ambientmusic =
 		tpw_soap_songsplaying = tpw_soap_songsplaying - 1;
 		};
 	};
+
+
+
+
 
 // PLAY ENVIROMENTAL AMBIENCE IN HOUSES
 tpw_soap_fnc_ambientsounds =
@@ -440,13 +444,13 @@ tpw_soap_fnc_ambientsounds =
 
 		// Inbuilt SFX
 		_sel = floor (random tpw_soap_sounds);
-		_clip = format ["%1%2.ogg",tpw_soap_path,_sel + 1];
+		_clip = format ["%1%2.ogg",root + tpw_soap_path,_sel + 1];
 		_len = tpw_soap_soundlength select _sel;
 
 		// User SFX
 		if ((tpw_soap_usersounds > 0) && {random 10 < 5}) then
 			{
-			_clip = format ["scripts\other\TPW\@TPW_MODS\sounds\%1.ogg",floor (random tpw_soap_usersounds) + 1];
+			_clip = format [root + "scripts\other\TPW\@TPW_MODS\sounds\%1.ogg",floor (random tpw_soap_usersounds) + 1];
 			_len = 30;
 			};
 		_finish = diag_ticktime + _len - 5;
@@ -476,7 +480,7 @@ tpw_soap_fnc_constructionsounds =
 		_atten = tpw_soap_attenuation + random tpw_soap_attenuation;
 
 		_sel = floor random 12;
-		_clip = format ["%1%2.ogg",'scripts\other\TPW\TPW_AMBIENCE\sounds\construction\b',_sel + 1];
+		_clip = format ["%1%2.ogg",root + 'scripts\other\TPW\TPW_AMBIENCE\sounds\construction\b',_sel + 1];
 		_len = tpw_soap_constructionlength select _sel;
 		_finish = diag_ticktime + _len - 5;
 		_house setvariable ["tpw_soap_constructionflag",_finish,true];

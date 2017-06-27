@@ -1,4 +1,4 @@
-VCOMAI_Func = 
+VCOMAI_Func =
 {
 //Variable for enabling/disabling skill changes for AI. True is on, False is off.
 VCOM_AISkillEnabled = true;
@@ -13,7 +13,7 @@ NOAI_FOR_PLAYERLEADERS = 1;
 //Will AI garrison static weapons nearby?
 VCOM_STATICGARRISON = 1;
 //How far can the AI hear gunshots from?
-VCOM_HEARINGDISTANCE = 500;
+VCOM_HEARINGDISTANCE = 800;
 //Should AI be able to call for artillery. 1 = YES 0 = NO
 VCOM_Artillery = 1;
 //Should we let AI use flanking manuevers? false means they can flank
@@ -21,7 +21,7 @@ VCOM_NOPATHING = false;
 //Should AI use smoke grenades? Besides default A3 behavior?
 VCOM_USESMOKE = true;
 //Chance of AI using grenades
-VCOM_GRENADECHANCE = 20;
+VCOM_GRENADECHANCE = 50;
 //Should the AI lay mines?
 VCOM_MineLaying = true;
 //Chance of AI to lay a mine.
@@ -53,7 +53,7 @@ VCOM_IncreasingAccuracy = true;
 VCOM_SideBasedMovement = [WEST,EAST,RESISTANCE];
 //VCOM_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
 VCOM_SideBasedExecution = [WEST,EAST,RESISTANCE];
-//Distance AI will respond to call of help from each other. 
+//Distance AI will respond to call of help from each other.
 VCOM_Unit_AIWarnDistance = 1000;
 
 //The following commands are to be left alone, except under rare circumstances.
@@ -66,16 +66,16 @@ ArtilleryArray = [];
 AccuracyFunctionRank6 = {
 _Unit = _this select 0;
 
-_Unit setSkill ["aimingAccuracy",(0.05 + (random 0.05))];
+_Unit setSkill ["aimingAccuracy",(0.6 + (random 0.05))];
 _Unit setSkill ["aimingShake",(0.05 + (random 0.05))];
-_Unit setSkill ["spotDistance",(0.6 + (random 0.1))];
+_Unit setSkill ["spotDistance",(0.8 + (random 0.1))];
 _Unit setSkill ["spotTime",(0.6 + (random 0.1))];
-_Unit setSkill ["courage",(0.7 + (random 0.3))];
+_Unit setSkill ["courage",(0.9 + (random 0.3))];
 _Unit setSkill ["commanding",1.0];
-_Unit setSkill ["aimingSpeed",(0.5 + (random 0.1))];
+_Unit setSkill ["aimingSpeed",(0.7 + (random 0.1))];
 _Unit setSkill ["general",1.0];
 _Unit setSkill ["endurance",1.0];
-_Unit setSkill ["reloadSpeed",(0.7 + (random 0.3))];
+_Unit setSkill ["reloadSpeed",(0.9 + (random 0.3))];
 };
 //Major Level AI
 AccuracyFunctionRank5 = {

@@ -101,7 +101,7 @@ tpw_radio_fnc_carscan = {
 							_sound = format ["rhsafrf\addons\rhs_s_radio\rc\rus_rc_%1.wss",_rnd];
 							} else
 							{
-							_sound = format ["scripts\other\TPW\TPW_SOUNDS\sounds\radio%1.ogg",ceil random 43];
+							_sound = format [root + "scripts\other\TPW\TPW_SOUNDS\sounds\radio%1.ogg",ceil random 43];
 							};
 						playsound3d [_sound,_veh,false,getposasl _veh,tpw_radio_car,1,50];
 						};
