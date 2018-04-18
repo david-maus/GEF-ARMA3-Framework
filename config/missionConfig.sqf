@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 //------- Mission -------
-dummyBigLoadscreen         = 0;			// Aktiviert einen großen Dummy Loadscreen nach dem joinen
+dummyBigLoadscreen         = 0;            // Aktiviert einen großen Dummy Loadscreen nach dem joinen
 briefing                   = 1;            // Aktiviert die Post Effekte in der postEffects.sqf Datei
 intro                      = 0;            // Aktiviert das Intro in der intro.sqf Datei
 mission                    = 1;            // Führt alles in der mission.sqf aus
@@ -12,8 +12,8 @@ vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit 
 vArsenalMakerCount         = 10;           // Anzahl der kisten. Nur erhöhen wenn benötigt, kann sonst so bleiben.
 
 
-tpw                        = 1;           // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
-vcom                       = 1;           // Aktiviert die VCOM AI
+tpw                        = 1;            // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
+vcom                       = 1;            // Aktiviert die VCOM AI
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -21,9 +21,9 @@ vcom                       = 1;           // Aktiviert die VCOM AI
 
 respawnOnGroup             = 1;            // Respawn auf Gruppenmitgliedern
 
-restoreLoadOut 			   = 1;			// Stellt das Gear vor dem Tot nachdem REspawn wieder her
+restoreLoadOut             = 1;            // Stellt das Gear vor dem Tot nachdem REspawn wieder her
 
-fuelSystem                 = 1;			// Aktiviert das Fuel System, mehr Verbrauch in der Mission
+fuelSystem                 = 1;            // Aktiviert das Fuel System, mehr Verbrauch in der Mission
 
 r3fLogistic                = 0;            // Aktiviere das R3F Logistiksystem
 

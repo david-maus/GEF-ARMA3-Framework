@@ -29,10 +29,10 @@ if ((isServer) or (isDedicated)) then {
     _settingsLRWest set [2, ["50","51","52","53","54","55","56","57"]];
     tf_freq_west_lr = _settingsLRWest;
     publicVariable "tf_freq_west_lr";
-    
+
     //tf_radio_channel_name = "Tactical Server >> TFAR <<"; //Spieler automatisch in Channel verschieben wenn TFAR connected und Mission gestartet.
     //publicVariable "tf_radio_channel_name";
-    
-   	//tf_radio_channel_password = "123"; //Spieler automatisch in Channel verschieben wenn TFAR connected und Mission gestartet.
+
+       //tf_radio_channel_password = "123"; //Spieler automatisch in Channel verschieben wenn TFAR connected und Mission gestartet.
     //publicVariable "tf_radio_channel_password";
-};  
+};
