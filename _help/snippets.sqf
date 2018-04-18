@@ -39,3 +39,6 @@ exit;
 
 // Transport Beispiel:
 [unitname, "HORSE ONE", "TRANSPORT", true, "0", "", "", "", ""] execVM "scripts\other\aliveSupport.sqf";
+
+// CAS Beispiel:
+[unitname, "STORM ONE", "CAS", false, "0", "", "", "", ""] execVM "scripts\other\aliveSupport.sqf";
