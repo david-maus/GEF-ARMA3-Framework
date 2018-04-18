@@ -20,8 +20,8 @@ else
 
         if (isNil _checkFor) exitWith {};
 
-        _car addaction ["Open Virtual Arsenal", { ["Open",true] call BIS_fnc_arsenal; }];
-
+        // _car addaction ["Open Virtual Arsenal", { ["Open",true] call BIS_fnc_arsenal; }];
+        [_car, true] call ace_arsenal_fnc_initBox;
 
 
 
