@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8109.4375,39.52766,10124.078};
-		dir[]={-0.80649614,-0.47771704,0.34857237};
-		up[]={-0.43853903,0.87849087,0.18954159};
-		aside[]={0.39676905,8.2385668e-008,0.91800171};
+		pos[]={8111.4502,33.115532,10128.438};
+		dir[]={-0.98119372,-0.17621841,0.079029642};
+		up[]={-0.17566898,0.98434633,0.014148776};
+		aside[]={0.080284245,4.6803234e-007,0.99678802};
 	};
 };
 binarizationWanted=0;
@@ -4425,7 +4425,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8103.4199,29.545967,10132.235};
+						position[]={8104.3403,29.544497,10131.472};
 						angles[]={0,4.5877895,0};
 					};
 					side="West";
@@ -4849,8 +4849,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8099.9541,29.699669,10132.431};
-				angles[]={0,0,6.2824869};
+				position[]={8101.0879,29.697861,10132.194};
+				angles[]={-0,0,6.2816415};
 			};
 			side="Empty";
 			flags=4;
@@ -4860,7 +4860,6 @@ class Mission
 			};
 			id=39;
 			type="Box_NATO_WpsLaunch_F";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0

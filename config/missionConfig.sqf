@@ -14,7 +14,7 @@ vArsenalMakerCount         = 10;           // Anzahl der kisten. Nur erhöhen we
 
 tpw                        = 1;            // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
 vcom                       = 1;            // Aktiviert die VCOM AI
-dynamicFurniture           = 1;            // Activates dynamic furniture script
+dynamicFurniture           = 0;            // Activates dynamic furniture script
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
