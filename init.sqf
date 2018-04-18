@@ -5,103 +5,24 @@
 // init.sqf - Wird beim Start der Mission von Client und Server ausgeführt
 
 
+#include "config\missionConfig.sqf"
 
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Mission -------
-
-_postEffects                = 0;            // Aktiviert die Post Effekte in der postEffects.sqf Datei
-_intro                      = 0;            // Aktiviert das Intro in der intro.sqf Datei
-_mission                    = 1;            // Führt alles in der mission.sqf aus
-_serverInfoMenu             = 0;            // Aktiviert Serverwindow
-
-_vArsenalMaker              = 1;            // besseres Arsenal für Objekte mit namen "vArsenal_1,2,3,4,5 etc."
-_vArsenalMakerCount         = 10;           // Anzahl der kisten. Nur erhöhen wenn benötigt, kann sonst so bleiben.
-
-
-_tpw                        = 1;           // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
-_vcom                       = 1;           // Aktiviert die VCOM AI
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Intel -------
-
-_timeMultiply               = 1;            // Aktiviert die custom Tag / Nacht Zeit
-_dayMultiply                = 4;            // Geschwindigkeit des Tages - 4 Entspricht 3 echten Stunden
-_nightMultiply              = 12;           // Geschwindkeit der Nacht - 12 Entspricht 1 echten Stunde
-
-_fogLimiter                 = 0;            // FogLimiter aktivieren
-_fogLimiterInterval         = 900;          // Zeitinterval für die Checks
-_fogLimiterMax              = 0.2;          // Maximaler Fog
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Alive -------
-
-_aliveAutotaskFilter        = 0;            // Führt staticData.sqf aus. Hier werden Autotasks von Alive gefiltert
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Gameplay -------
-
-_r3fLogistic                = 0;            // Aktiviere das R3F Logistiksystem
-
-_nvgOffLightOn              = 0;            // Entfernt alle nvgs und ir Laser von Opfor, fügt Lampen hinzu
-
-_interiorLight              = 1;            // Interior Licht in Helikoptern aktivieren
-_interiorLightMultiply      = 5;            // Intensität des Lichtes
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Settings -------
-
-_taskForceRadioConfig       = 1;            // Lade die TaskForceRadio Config
-
-_disableVCOMAIforAIR        = 1;            // Deaktiviert die VCOM AI für Lufteinheiten
-
-_aslAll                     = 1;            // Advanced SlingLoad Mod - Man kann alles slingloaden
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Debug und Co -------
-
-_postProcessEditor          = 0;            // Postprecess Editor aktivieren, sollte nur beim Missionsbau  an sein
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Camera -------
-
-_thirdPersonInBase          = 0;            // Erlaube ThirdPerson nur im Markerbereich / Geht noch nicht
-_thirdPersonInBaseMarker    = "blu_01";     // Markername wo ThirdPerson erlaubt sein soll
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 // -------------------------------------- Scriptausführung
-/////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 root = parsingNamespace getVariable "MISSION_ROOT";
 enableSaving [ false, false ]; // Disable Save und Autosave
 
+
+
+
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// R3F Logistics initalisieren
-if (_r3fLogistic == 1) then
+if (r3fLogistic == 1) then
 {
 [] execVM "scripts\other\R3F_LOG\init.sqf";
 };
@@ -113,7 +34,7 @@ if (_r3fLogistic == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Server Info Menu aktivieren
-if (_serverInfoMenu == 1) then
+if (serverInfoMenu == 1) then
 {
 [] ExecVM "scripts\other\scarCODE\ServerInfoMenu\sqf\initLocal.sqf"; // scarCODE ServerInfoMenu
 };
@@ -122,12 +43,43 @@ if (_serverInfoMenu == 1) then
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////// Postprocess Editor initalisieren
+if (mission == 1) then
+{
+[] execVM "mission\mission.sqf";
+};
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Postprocess Editor initalisieren
-if (_mission == 1) then
+if (briefing == 1) then
 {
-[] execVM "scripts\_mission\mission.sqf";
+[] execVM "mission\briefing.sqf";
+};
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////// Intro
+if (intro == 1) then
+{
+[] execVM "mission\intro.sqf";
+};
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////// PostEffects
+if (postEffects == 1) then
+{
+[] execVM "config\missionColor.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -136,7 +88,7 @@ if (_mission == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Postprocess Editor initalisieren
-if (_postProcessEditor == 1) then
+if (postProcessEditor == 1) then
 {
 [] execVM "scripts\other\GFPPE\GFPPE_init.sqf";
 };
@@ -147,7 +99,7 @@ if (_postProcessEditor == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Alive Auto-Tasks filtern
-if (_aliveAutotaskFilter == 1) then
+if (aliveAutotaskFilter == 1) then
 {
 [] execVM "staticData.sqf";
 };
@@ -158,7 +110,7 @@ if (_aliveAutotaskFilter == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Advanced Slingloading (Mod) Einstellungen
-if (_aslAll == 1) then
+if (aslAll == 1) then
 {
 ASL_SLING_RULES_OVERRIDE = [
       ["All","CAN_SLING","All"]
@@ -174,9 +126,9 @@ ASL_HEAVY_LIFTING_ENABLED = true;
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Day & Night Time Multiplicator
 /////////// [DayMultiply,NightMultiply] execVM "scripts\other\DayNightTimer.sqf";
-if (_timeMultiply == 1) then
+if (timeMultiply == 1) then
 {
-[_dayMultiply,_nightMultiply] execVM "scripts\other\DayNightTimer.sqf";
+[dayMultiply,nightMultiply] execVM "scripts\other\DayNightTimer.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -186,9 +138,9 @@ if (_timeMultiply == 1) then
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Virtual Arsenal mit Insignia, Faces und Voice auf alle Kisten mit angegebenen Namen
 /////////// ["Name der Kiste mit Zahl",Anzahl der Kisten)] execVM "scripts\other\vArsenalMaker.sqf";
-if (_vArsenalMaker == 1) then
+if (vArsenalMaker == 1) then
 {
-["vArsenal_",_vArsenalMakerCount] execVM "scripts\other\vArsenalMaker.sqf";
+["vArsenal_",vArsenalMakerCount] execVM "scripts\other\vArsenalMaker.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -198,9 +150,9 @@ if (_vArsenalMaker == 1) then
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// TASK FORCE RADIO Config
 /////////// Hier Task Force Radio einstellen bei Bedarf
-if (_taskForceRadioConfig == 1) then
+if (taskForceRadioConfig == 1) then
 {
-[] execVM "scripts\other\tfrConfig.sqf";
+[] execVM "config\taskforceConfig.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -210,7 +162,7 @@ if (_taskForceRadioConfig == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// Entfernt alle nvgs und Ir Laser von Opfor im 30 sekunden Interval
-if (_vcom == 1) then
+if (vcom == 1) then
 {
 If (isServer || !(hasinterface) ) then {[] execVM "VCOMAI\init.sqf";}
 };
@@ -222,7 +174,7 @@ If (isServer || !(hasinterface) ) then {[] execVM "VCOMAI\init.sqf";}
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// TASK FORCE RADIO Config
 /////////// Hier Task Force Radio einstellen bei Bedarf
-if (_disableVCOMAIforAIR == 1) then
+if (disableVCOMAIforAIR == 1) then
 {
 [] execVM "scripts\other\disableVCOMAIforAIR.sqf";
 };
@@ -232,33 +184,11 @@ if (_disableVCOMAIforAIR == 1) then
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-/////////////////// Intro
-if (_intro == 1) then
-{
-[] execVM "scripts\_intro\intro.sqf";
-};
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////// PostEffects
-if (_postEffects == 1) then
-{
-[] execVM "scripts\_mission\postEffects.sqf";
-};
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// Rotes Interieur Licht für Laderäume etc. in Helis z.b.
 /////////////////// [LichtMultiplier] execVM "scripts\other\IntLight.sqf";
-if (_interiorLight == 1) then
+if (interiorLight == 1) then
 {
-[_interiorLightMultiply] execVM "scripts\other\IntLight.sqf";
+[interiorLightMultiply] execVM "scripts\other\IntLight.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -268,9 +198,9 @@ if (_interiorLight == 1) then
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// Foglimiter (Alive Missionen mit dem Weather Modul können zu starken Nebel erzeugen)
 /////////////////// [Zeitinterval der Checks, Maximaler Nebel] execVM "scripts\other\FogLimiter.sqf";
-if (_fogLimiter == 1) then
+if (fogLimiter == 1) then
 {
-[_fogLimiterInterval, _fogLimiterMax] execVM "scripts\other\FogLimiter.sqf";
+[fogLimiterInterval, fogLimiterMax] execVM "scripts\other\FogLimiter.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -280,9 +210,9 @@ if (_fogLimiter == 1) then
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// ThirdPerson nur in der Zone (z.b. Basis) erlaubt
 /////////////////// ["Markername"] execVM "scripts\other\CameraView.sqf";
-if (_thirdPersonInBase == 1) then
+if (thirdPersonInBase == 1) then
 {
-[_thirdPersonInBaseMarker] execVM "scripts\other\CameraView.sqf";
+[thirdPersonInBaseMarker] execVM "scripts\other\CameraView.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -291,7 +221,7 @@ if (_thirdPersonInBase == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// Entfernt alle nvgs und Ir Laser von Opfor im 30 sekunden Interval
-if (_nvgOffLightOn == 1) then
+if (nvgOffLightOn == 1) then
 {
 [] execVM "scripts\other\nvgOffLightsOn.sqf";
 };
@@ -303,7 +233,7 @@ if (_nvgOffLightOn == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// Entfernt alle nvgs und Ir Laser von Opfor im 30 sekunden Interval
-if (_tpw == 1) then
+if (tpw == 1) then
 {
 [[""]] execvm "scripts\other\TPW\tpw_core.sqf";
 [60,1,0] execvm "scripts\other\TPW\tpw_radio.sqf";

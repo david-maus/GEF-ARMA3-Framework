@@ -16,14 +16,14 @@ if (isServer) then
 		}
 		else
 		{
-			VCOMAI_Func = compile preprocessFileLineNumbers "VCOMAI\Functions\VCOMAI_DefaultSettings.sqf";
+			VCOMAI_Func = compile preprocessFileLineNumbers "config\vcomConfig.sqf";
 			[] call VCOMAI_Func;
 			[VCOMAI_Func] remoteExec ["PublicScript",0,false];
 		};
 	}
 	else
 	{
-			VCOMAI_Func = compile preprocessFileLineNumbers "VCOMAI\Functions\VCOMAI_DefaultSettings.sqf";
+			VCOMAI_Func = compile preprocessFileLineNumbers "config\vcomConfig.sqf";
 			[] call VCOMAI_Func;
 			[VCOMAI_Func] remoteExec ["PublicScript",0,false];
 	};
@@ -36,7 +36,7 @@ else
 };
 
 waitUntil {!(isNil "VCOM_SideBasedExecution")};
- 
+
 //Compile all scripts that might be used
 VcomAI_UnitInit = compile preprocessFileLineNumbers "VCOMAI\Functions\VcomAI_UnitInit.sqf";
 VCOMAI_DetermineLeader = compile preprocessFileLineNumbers "VCOMAI\Functions\VCOMAI_DetermineLeader.sqf";
@@ -122,7 +122,7 @@ DisableCollisionALL = compileFinal "(_this select 0) disableCollisionWith player
 PSup = compile "[] spawn VCOMAI_SuppressedEffect;";
 
 //Below is loop to check for new AI spawning in to be added to the list
-if !(isDedicated) then 
+if !(isDedicated) then
 {
 	waitUntil {!isNil "BIS_fnc_init"};
 	waitUntil {!(isnull (findDisplay 46))};
@@ -142,12 +142,12 @@ VCOM_BasicCheckCurrent = 0;
 VCOM_LeaderExecuteCurrent = 0;
 
 
-while {true} do 
+while {true} do
 {
 	if (Vcom_ActivateAI) then
 	{
 		{
-			if (local _x && {simulationEnabled _x}) then 
+			if (local _x && {simulationEnabled _x}) then
 			{
 					if (!(_x in VcomAI_ActiveList) && {!(_x in VcomAI_UnitQueue)}) then
 					{

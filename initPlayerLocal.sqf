@@ -7,35 +7,7 @@
 
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Mission -------
-
-_dummyBigLoadscreen         = 0;			// Aktiviert einen großen Dummy Loadscreen nach dem joinen
-
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- Gameplay -------
-
-_respawnOnGroup             = 1;            // Respawn auf Gruppenmitgliedern
-
-_restoreLoadOut 			= 1;			// Stellt das Gear vor dem Tot nachdem REspawn wieder her
-
-_fuelSystem                 = 1;			// Aktiviert das Fuel System, mehr Verbrauch in der Mission
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
+#include "config\missionConfig.sqf"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +26,7 @@ _fuelSystem                 = 1;			// Aktiviert das Fuel System, mehr Verbrauch 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Dummy Big Load Screen
-if (_dummyBigLoadscreen == 1) then
+if (dummyBigLoadscreen == 1) then
 {
     [] spawn {
         disableSerialization;
@@ -76,7 +48,7 @@ if (_dummyBigLoadscreen == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Restore Loadout nach Respawn
-if (_restoreLoadOut == 1) then
+if (restoreLoadOut == 1) then
 {
     // Save loadout
     player addEventHandler ["Killed", {
@@ -100,7 +72,7 @@ if (_restoreLoadOut == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Fuel Script - Mehr Verbrauch
-if (_fuelSystem == 1) then
+if (fuelSystem == 1) then
 {
     player addEventHandler ["GetInMan", {[_this select 2] execVM "scripts\other\kp_fuel_consumption.sqf";}];
 };
@@ -112,7 +84,7 @@ if (_fuelSystem == 1) then
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////// Respawn auf Gruppenmitglieder
-if (_respawnOnGroup == 1) then
+if (respawnOnGroup == 1) then
 {
     // Save loadout
     player addEventHandler ["Killed", {
