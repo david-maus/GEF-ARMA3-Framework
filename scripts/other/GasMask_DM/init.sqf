@@ -14,7 +14,13 @@ INS_gasMaskH = [
 INS_gasMaskG = [
                 "Mask_M50",
                 "Mask_M40",
-                "Mask_M40_OD"
+                "Mask_M40_OD",
+                "avon_ct12",
+                "avon_ct12_strapless",
+                "avon_fm12",
+                "avon_fm12_strapless",
+                "avon_SF12",
+                "avon_SF12_strapless"
                 ];
 
 Choke_Sounds = [
@@ -44,6 +50,7 @@ _gasZoneDynamicName = _this select 1;
 
  GasDynamicMarkers = [];
   GasZoneCond = '';
+  GasZoneCond_ai = '';
 {
     private "_a";
   _a = toArray _x;
@@ -54,7 +61,8 @@ _gasZoneDynamicName = _this select 1;
          _markerSize = getMarkerSize _x select 0;
          _x setMarkerAlpha 0;
         null=[_x,_markerSize,1,7,2,5,-0.3,0.1,0.3,0.7,0.6,0.2,13,9,13,false,0,0,0,0,0,0,3.5,17.5] execFSM "scripts\other\GasMask_DM\Fog.fsm";
-        GasZoneCond = GasZoneCond + 'player distance getMarkerPos "' + _x + '" < ' + str _markerSize + ' || '
+        GasZoneCond = GasZoneCond + 'player distance getMarkerPos "' + _x + '" < ' + str _markerSize + ' || ';
+        GasZoneCond_ai = GasZoneCond_ai + '_x distance getMarkerPos "' + _x + '" < ' + str _markerSize + ' || ';
   };
 
 } forEach allMapMarkers;
@@ -84,22 +92,76 @@ if (isServer) then
 
     // AI
 
+        GAS_Damage_ai = {
+            _x = _this select 0;
+            _x setVariable ["inGas",true];
 
+            private ["_maxtype","_sound"];
+            _maxtype = (count Choke_Sounds);
 
+            //While were in smoke
+            while { alive _x && [_x] call GAS_inZone_ai } do {
+                _sound = Choke_Sounds select (floor random _maxtype);
+                playsound3d [_sound, _x, false, getPosasl _x, 10,1,30];
 
-        //While were in smoke
-        /*{
-            if(!isPlayer _x) then {
-                while { alive _x && not captive _x && [] call GAS_inZoneAI } do {
-                    _sound = Choke_Sounds select (floor random _maxtype);
-                    playsound3d [_sound, _x, false, getPosasl _x, 10,1,30];
-                    _x setDamage (damage _x + 0.01);
-                    //if(round(random(1)) isEqualTo 0) then {hint "You Should Wear a Gas Mask";};
-                    uiSleep 2.8123;
+                if (ACE_ENABLED_CHECK) then {
+                    [_x, 0.2, "head", "unknown"] call ace_medical_fnc_addDamageToUnit;
+                } else {
+                    _x setDamage (damage _x + 0.2);
                 };
-            }
-        }forEach allUnits;*/
 
+                sleep 3;
+            };
+
+            //We are no longer in smoke
+            [_x] call GAS_Clear_ai;
+
+        };
+
+        GAS_Clear_ai = {
+            _x = _this select 0;
+            _x setVariable ["inGas",false];
+        };
+
+        GAS_inZone_ai = {
+            _x = _this select 0;
+            //Are we near a smoke shell
+            //Are we not wearing a gas mask
+            if ((headgear _x in INS_gasMaskH) || {(goggles _x in INS_gasMaskG)}) then {
+                //We are wearing a gas mask. Return false as it does not matter if a smoke shell is near
+                false
+            } else {
+                //If there is a smoke shell
+                if (call compile (GasZoneCond_ai)) then {
+                    //Is it at rest AND within 10 meters of the player ( will need to experiment with magnitude threshold )
+                    true
+                } else {
+                    //There is no smoke shell so Return false
+                    false
+                };
+            };
+        };
+
+
+
+
+        //Check each frame if we are near smoke
+            //If we are not already flagged as in smoke AND near a smoke shell
+                //Start gas effects
+            smokeNearSEHID_ai = [ "smokeNear_ai", "onEachFrame", {
+
+
+
+                {
+                    if (!isPlayer _x) then {
+                        if (!(_x getVariable ["inGas",false]) && { [_x] call GAS_inZone_ai }) then {
+                            _inSmokeThread_ai = [_x] spawn GAS_Damage_ai;
+                        };
+                    };
+
+                } forEach allUnits;
+
+            }] call BIS_fnc_addStackedEventHandler;
 
 
 

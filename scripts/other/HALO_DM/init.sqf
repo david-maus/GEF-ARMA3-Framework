@@ -35,7 +35,7 @@ _haloTarget = _this select 2;
 _haloWaitTime = _this select 3;
 
 
-sleep 1;
+
 
 
 
@@ -61,7 +61,7 @@ if (isServer) then
          _x setMarkerAlpha 0;
 
          haloTarget = [getMarkerPos _x select 0, getMarkerPos _x select 1, getMarkerPos _x select 2];
-
+         publicVariable "haloTarget";
 
   };
       } forEach allMapMarkers;
@@ -116,12 +116,57 @@ if (isServer) then
 
 
 
-      sleep 1;
+      sleep 0.5;
       {
-          //_x moveInCargo [haloPlane, 1];
-          _x attachTo [haloPlane,[0, 4, 0]];
-          detach _x;
-          _x setDir haloStartDir;
+          if (_forEachIndex == 0) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[0, 4, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 1) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[-0.8, 6, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 2) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[0.83, 6, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 3) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[0.83, 8, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 4) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[-0.8, 8, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 5) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[-0.8, 2.5, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 6) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[0.83, 2.5, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+          if (_forEachIndex == 7) then {
+              //_x moveInCargo [haloPlane, 1];
+              _x attachTo [haloPlane,[0, 0.5, 0]];
+              detach _x;
+              _x setDir haloStartDir;
+          };
+
       } forEach allPlayers;
 
       PlayerReady = true;
@@ -163,16 +208,20 @@ if (!isDedicated && hasInterface) then
 {
     // Client functions //
 
-    publicVariable "PlayerReady";;
+    publicVariable "PlayerReady";
+    publicVariable "haloTarget";
 
     waitUntil {PlayerReady};
     sleep 1;
     player playActionNow "PlayerStand";
+    sleep 2;
+    player action ["WeaponOnBack", player];
     //waitUntil {((velocity player select 2 < -3))};
     waitUntil {((animationState player == "HaloFreeFall_non") || (animationState player == "HaloFreeFall_F") || (animationState player == "HaloFreeFall_B"))};
 
 
     smokeCreate = true;
+
     [] spawn {
             while {smokeCreate} do {
                 _smokeRed = "SmokeShellRed" createVehicle (position player);
@@ -181,13 +230,14 @@ if (!isDedicated && hasInterface) then
             };
     };
     [player, 0.8, 0.0, 0.0, 0.4] execVM "scripts\other\createSmoke.sqf";
+
     _jumpLightRED = "ACE_G_Chemlight_HiRed" createVehicle (position player);
     _jumpLightRED attachTo [vehicle player,[-0.05,-0.09,0.1],"lankle"];
 
     _iconHandler = [ "_iconHandlerID", "onEachFrame", {
         if ((headgear player in INS_jumpMaskH)) then {
             _distance = player distance haloTarget;
-            _targetName = 'LZ - ' + str _distance + ' M';
+            _targetName = 'LZ - ALTITUDE: ' + str _distance;
             drawIcon3D ["\a3\ui_f\data\map\Markers\NATO\b_inf.paa", [1,1,1,1], haloTarget, 1, 1, 0, _targetName, 0, 0.04];
         };
 

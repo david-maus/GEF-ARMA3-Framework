@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8107.3076,32.870552,10124.272};
-		dir[]={-0.71399468,-0.401106,0.57400423};
-		up[]={-0.31265089,0.91600543,0.25135016};
-		aside[]={0.62661165,-8.0984319e-007,0.77943361};
+		pos[]={8114.6733,45.423038,10119.06};
+		dir[]={-0.76795298,-0.43791983,0.46760583};
+		up[]={-0.37408084,0.89898664,0.22777848};
+		aside[]={0.5201239,-3.521709e-007,0.8542034};
 	};
 };
 binarizationWanted=0;
@@ -42,13 +42,15 @@ addons[]=
 	"ace_hearing",
 	"immersion_pops",
 	"murshun_cigs",
+	"Shemaghs",
+	"CUP_Creatures_Military_USMC",
 	"zade_boc"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=15;
+		items=17;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -142,6 +144,16 @@ class AddonsMetaData
 			name="murshun_cigs";
 		};
 		class Item14
+		{
+			className="Shemaghs";
+			name="Shemaghs";
+		};
+		class Item15
+		{
+			className="CUP_Creatures_Military_USMC";
+			name="CUP_Creatures_Military_USMC";
+		};
+		class Item16
 		{
 			className="zade_boc";
 			name="zade_boc";
@@ -4517,7 +4529,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8083.7612,29.577421,10122.433};
+						position[]={8069.7319,29.600519,10124.235};
 					};
 					side="Civilian";
 					flags=7;
@@ -4588,7 +4600,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8085.6611,29.571669,10130.277};
+						position[]={8069.4414,29.604237,10120.17};
 					};
 					side="Civilian";
 					flags=7;
@@ -4848,7 +4860,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8102.27,29.547806,10127.591};
+						position[]={8082.8682,29.57885,10128.299};
 						angles[]={0,4.7526536,0};
 					};
 					side="West";
@@ -5263,7 +5275,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8101.5,29.549038,10129.977};
+						position[]={8072.5977,29.591532,10142.237};
 						angles[]={0,4.7526536,0};
 					};
 					side="West";
@@ -5347,8 +5359,8 @@ class Mission
 							};
 							compass="ItemCompass";
 							watch="ACE_Altimeter";
-							goggles="TRYK_kio_balaclava_BLK";
-							headgear="H_PilotHelmetFighter_B";
+							goggles="LCG_Shemagh_OD";
+							headgear="CUP_H_USMC_CAP_WDL";
 						};
 					};
 					id=96;
@@ -5557,7 +5569,7 @@ class Mission
 		class Item13
 		{
 			dataType="Marker";
-			position[]={8069.6011,29.615986,10090.818};
+			position[]={8068.1494,29.604618,10120.43};
 			name="GasZone_2";
 			markerType="ELLIPSE";
 			type="ellipse";
@@ -7096,7 +7108,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="""Mask_M40""";
+							value="""Mask_M40"", ""avon_ct12""";
 						};
 					};
 				};

@@ -1,3 +1,4 @@
+
 // All Headgear to use as Gasmask
 INS_gasMaskH = [
                 "H_CrewHelmetHeli_B",
@@ -37,7 +38,7 @@ if (isServer) then
 {
 
     // AI
-    [] spawn {
+
         {
             if(!isPlayer _x) then {
                 [_x] spawn {
@@ -45,11 +46,11 @@ if (isServer) then
                     while { alive _x } do {
 
                     //if have helmet A
-                    if ((headgear _x in INS_gasMaskH) || {(goggles _x in INS_gasMaskG)}) then {
-                        sleep floor random 2;
+                    if ((headgear _x in INS_gasMaskH) || (goggles _x in INS_gasMaskG)) then {
+                        sleep random 2.8;
                         [_x] spawn {
                             _x = _this select 0;
-                            while {(headgear _x in INS_gasMaskH) || {(goggles _x in INS_gasMaskG)}} do {
+                            while {((headgear _x in INS_gasMaskH) || (goggles _x in INS_gasMaskG)) && alive _x} do {
 
                                 _logicC = createCenter sideLogic;
                                 _logicG = createGroup _logicC;
@@ -68,20 +69,21 @@ if (isServer) then
                     };
 
                     //wait until player have helmet B
-                    waitUntil { sleep 1; !(headgear _x in INS_gasMaskH) && {!(goggles _x in INS_gasMaskG)}};
+                    waitUntil { sleep 1; !(headgear _x in INS_gasMaskH) && !(goggles _x in INS_gasMaskG)};
 
                     //if have helmet B
-                    if (!(headgear _x in INS_gasMaskH) && {!(goggles _x in INS_gasMaskG)}) then {
+                    if (!(headgear _x in INS_gasMaskH) && !(goggles _x in INS_gasMaskG)) then {
 
                     };
 
                     //wait until player have helmet A
-                    waitUntil { sleep 1; (headgear _x in INS_gasMaskH) || {(goggles _x in INS_gasMaskG)} };
+                    waitUntil { sleep 1; (headgear _x in INS_gasMaskH) || (goggles _x in INS_gasMaskG) };
 
-                };};
-            }
+                };
+             };
+            };
         }forEach allUnits;
-    };
+
 
 };
 // Client //
@@ -97,7 +99,7 @@ if (!isDedicated && hasInterface) then
         if ((headgear player in INS_gasMaskH)) then {
             sleep floor random 2;
             [] spawn {
-                while {(headgear player in INS_gasMaskH)} do {
+                while {(headgear player in INS_gasMaskH) && alive player} do {
                     222 cutRsc ["VQI_HALO_HELMET_CLASSII", "PLAIN", 0, false];
 
                     // playSound3D [Breath_Sound, player];
@@ -119,7 +121,7 @@ if (!isDedicated && hasInterface) then
         if ((goggles player in INS_gasMaskG)) then {
             sleep floor random 2;
             [] spawn {
-                while {(goggles player in INS_gasMaskG)} do {
+                while {(goggles player in INS_gasMaskG) && alive player} do {
                     222 cutRsc ["GASMASKOVERLAY_CLASS", "PLAIN", 0, false];
 
                     // playSound3D [Breath_Sound, player];
