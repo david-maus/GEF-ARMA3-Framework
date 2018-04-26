@@ -1,0 +1,1 @@
+This directory contains OGG files for use by TPW SOAP. If you want to include your own sounds, create them as OGG VORBIS (up to 20 files, each less than 30 seconds long) rename them 1.ogg, 2.ogg etc.

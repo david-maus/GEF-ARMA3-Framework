@@ -17,8 +17,8 @@ To use:
 1 = Azan volume (0-2)
 1 = house FX volume (0-2)
 1 = scream volume (0-2)
-0 = number of user music files in scripts\other\TPW\@TPW_MODS\music (0-20)
-0 = number of user sound files in scripts\other\TPW\@TPW_MODS\sounds (0-20)
+0 = number of user music files in media\TPW\@TPW_MODS\music (0-20)
+0 = number of user sound files in media\TPW\@TPW_MODS\sounds (0-20)
 0 = region (0 = autoselect Greek/Fijian sounds on Greek/Fijian maps (1 = force Greek, 2 = force Mid East, 3 = force Fijian))
 
 THIS SCRIPT WON'T RUN ON DEDICATED SERVERS.
@@ -253,7 +253,7 @@ tpw_soap_fnc_housescan =
 		{
 		tpw_soap_sounds = 17;
 		tpw_soap_songs = 9;
-		tpw_soap_path = "scripts\other\TPW\TPW_AMBIENCE\sounds\greek\";
+		tpw_soap_path = "media\TPW\TPW_AMBIENCE\sounds\greek\";
 		tpw_soap_soundlength = tpw_soap_greeksoundlength;
 		tpw_soap_songlength = tpw_soap_greeksonglength;
 		tpw_soap_musicfactor = 2.5; // Slightly louder Greek music
@@ -263,7 +263,7 @@ tpw_soap_fnc_housescan =
 		{
 		tpw_soap_sounds = 19;
 		tpw_soap_songs = 11;
-		tpw_soap_path = "scripts\other\TPW\TPW_AMBIENCE\sounds\mideast\";
+		tpw_soap_path = "media\TPW\TPW_AMBIENCE\sounds\mideast\";
 		tpw_soap_soundlength = tpw_soap_mideastsoundlength;
 		tpw_soap_songlength = tpw_soap_mideastsonglength;
 		tpw_soap_musicfactor = 2;
@@ -273,7 +273,7 @@ tpw_soap_fnc_housescan =
 		{
 		tpw_soap_sounds = 25;
 		tpw_soap_songs = 11;
-		tpw_soap_path = "scripts\other\TPW\TPW_AMBIENCE\sounds\fiji\";
+		tpw_soap_path = "media\TPW\TPW_AMBIENCE\sounds\fiji\";
 		tpw_soap_soundlength = tpw_soap_fijisoundlength;
 		tpw_soap_songlength = tpw_soap_fijisonglength;
 		tpw_soap_musicfactor = 2;
@@ -283,7 +283,7 @@ tpw_soap_fnc_housescan =
 		{
 		tpw_soap_sounds = 29;
 		tpw_soap_songs = 12;
-		tpw_soap_path = "scripts\other\TPW\TPW_AMBIENCE\sounds\france\";
+		tpw_soap_path = "media\TPW\TPW_AMBIENCE\sounds\france\";
 		tpw_soap_soundlength = tpw_soap_francesoundlength;
 		tpw_soap_songlength = tpw_soap_francesonglength;
 		tpw_soap_musicfactor = 1.5;
@@ -293,7 +293,7 @@ tpw_soap_fnc_housescan =
 		{
 		tpw_soap_sounds = 29;
 		tpw_soap_songs = 8;
-		tpw_soap_path = "scripts\other\TPW\TPW_AMBIENCE\sounds\russia\";
+		tpw_soap_path = "media\TPW\TPW_AMBIENCE\sounds\russia\";
 		tpw_soap_soundlength = tpw_soap_russiasoundlength;
 		tpw_soap_songlength = tpw_soap_russiasonglength;
 		tpw_soap_musicfactor = 1.5;
@@ -304,7 +304,7 @@ tpw_soap_fnc_housescan =
 		private _rnd = floor random 5;
 		tpw_soap_sounds = [17,19,25,29,29] select _rnd;
 		tpw_soap_songs = [9,11,11,12,8] select _rnd;
-		tpw_soap_path = format ["%1%2\","scripts\other\TPW\TPW_AMBIENCE\sounds\",["greece","mideast","fiji","france","russia"] select _rnd];
+		tpw_soap_path = format ["%1%2\","media\TPW\TPW_AMBIENCE\sounds\",["greece","mideast","fiji","france","russia"] select _rnd];
 		tpw_soap_soundlength = [tpw_soap_greeksoundlength, tpw_soap_mideastsoundlength,tpw_soap_fijisoundlength,tpw_soap_francesoundlength,tpw_soap_russiasoundlength] select _rnd;
 		tpw_soap_songlength = [tpw_soap_greeksonglength, tpw_soap_mideastsonglength,tpw_soap_fijisonglength,tpw_soap_francesonglength,tpw_soap_russiasonglength] select _rnd;
 		tpw_soap_musicfactor = [2.5,2,2,1.5,1.5] select _rnd;
@@ -406,10 +406,10 @@ tpw_soap_fnc_ambientmusic =
 		_clip = format ["%1s%2.ogg",root + tpw_soap_path,_sel + 1];
 		_len = tpw_soap_songlength select _sel;
 
-		// Play user song from scripts\other\TPW\@TPW_MODS\music
+		// Play user song from media\TPW\@TPW_MODS\music
 		if ((tpw_soap_usermusic >0) && {random 10 < 5}) then
 			{
-			_clip = format [root + "scripts\other\TPW\@TPW_MODS\music\%1.ogg",floor (random tpw_soap_usermusic) + 1];
+			_clip = format [root + "media\TPW\@TPW_MODS\music\%1.ogg",floor (random tpw_soap_usermusic) + 1];
 			_len = 180;
 			};
 		_finish = diag_ticktime + _len - 5;
@@ -450,7 +450,7 @@ tpw_soap_fnc_ambientsounds =
 		// User SFX
 		if ((tpw_soap_usersounds > 0) && {random 10 < 5}) then
 			{
-			_clip = format [root + "scripts\other\TPW\@TPW_MODS\sounds\%1.ogg",floor (random tpw_soap_usersounds) + 1];
+			_clip = format [root + "media\TPW\@TPW_MODS\sounds\%1.ogg",floor (random tpw_soap_usersounds) + 1];
 			_len = 30;
 			};
 		_finish = diag_ticktime + _len - 5;
@@ -480,7 +480,7 @@ tpw_soap_fnc_constructionsounds =
 		_atten = tpw_soap_attenuation + random tpw_soap_attenuation;
 
 		_sel = floor random 12;
-		_clip = format ["%1%2.ogg",root + 'scripts\other\TPW\TPW_AMBIENCE\sounds\construction\b',_sel + 1];
+		_clip = format ["%1%2.ogg",root + 'media\TPW\TPW_AMBIENCE\sounds\construction\b',_sel + 1];
 		_len = tpw_soap_constructionlength select _sel;
 		_finish = diag_ticktime + _len - 5;
 		_house setvariable ["tpw_soap_constructionflag",_finish,true];
@@ -506,7 +506,7 @@ tpw_soap_fnc_azanplay =
 		_mosque = _this select 0;
 		_sel = floor random 10;
 		_len = tpw_soap_azanlength select _sel;
-		_song = format ["scripts\other\TPW\TPW_AZAN\sounds\%1.ogg",(_sel + 1)];
+		_song = format ["media\TPW\TPW_AZAN\sounds\%1.ogg",(_sel + 1)];
 		_finish = diag_ticktime + _len;
 		_mosque setvariable ["tpw_soap_azanflag",_finish,true];
 		_vol = tpw_soap_azanvolume * 0.5 + random 0.5;
@@ -516,7 +516,7 @@ tpw_soap_fnc_azanplay =
 		tpw_soap_azanflag = 1;
 		sleep 10;
 		// Play prayer in nearest house
-		playsound3d ["scripts\other\TPW\TPW_AMBIENCE\sounds\mideast\18.ogg",nearestbuilding player];
+		playsound3d ["media\TPW\TPW_AMBIENCE\sounds\mideast\18.ogg",nearestbuilding player];
 		waituntil
 			{
 			sleep 10;
@@ -537,7 +537,7 @@ tpw_soap_fnc_housenoise =
 			{
 			_pitch = 0.8 + random 0.4;
 			_vol = (tpw_soap_housefxvolume * windstr * 0.25); // louder creaking in the wind
-			_sound = format ["scripts\other\TPW\TPW_AMBIENCE\sounds\house\c%1.ogg",(ceil random 7)];
+			_sound = format ["media\TPW\TPW_AMBIENCE\sounds\house\c%1.ogg",(ceil random 7)];
 			playsound3d [_sound,player,false,getposasl player,_vol,_pitch,50];
 			};
 		sleep random 30;
@@ -554,10 +554,10 @@ tpw_soap_fnc_windnoise =
 			{
 			_pitch = 0.8 + random 0.4;
 			_vol = (tpw_soap_housefxvolume * windstr * 0.5);
-			_sound = format ["scripts\other\TPW\TPW_AMBIENCE\sounds\house\w%1.ogg",(ceil random 9)];
+			_sound = format ["media\TPW\TPW_AMBIENCE\sounds\house\w%1.ogg",(ceil random 9)];
 			playsound3d [_sound,player,false,getposasl player,_vol,_pitch,50]; // wind
 			sleep random 10;
-			_sound = format ["scripts\other\TPW\TPW_AMBIENCE\sounds\house\r%1.ogg",(ceil random 6)]; // rattle
+			_sound = format ["media\TPW\TPW_AMBIENCE\sounds\house\r%1.ogg",(ceil random 6)]; // rattle
 			playsound3d [_sound,player,false,getposasl player,_vol * 2,_pitch,50];
 			};
 		sleep 30 + random 10;
@@ -605,17 +605,17 @@ tpw_soap_fnc_scream =
 			_pitch = 0.9 + random 0.2;
 			if (random 10 < 5) then
 				{
-				_sound = format ["scripts\other\TPW\TPW_AMBIENCE\sounds\fear\%1.ogg",(ceil random 12)]; // screams, babies
+				_sound = format ["media\TPW\TPW_AMBIENCE\sounds\fear\%1.ogg",(ceil random 12)]; // screams, babies
 				} else
 				{
-				_sound = format ["scripts\other\TPW\TPW_SOUNDS\sounds\dog%1.ogg",ceil (random 20)]; // barks
+				_sound = format ["media\TPW\TPW_SOUNDS\sounds\dog%1.ogg",ceil (random 20)]; // barks
 				};
 			playsound3d [_sound,_house,false,getposasl _house,_vol,_pitch,100];
 
 			if (count ([100] call tpw_core_fnc_houses) > 20) then
 				{
 				sleep random 10;
-				_sound = format ["scripts\other\TPW\TPW_SOUNDS\sounds\siren%1.ogg",ceil (random 4)]; // sirens
+				_sound = format ["media\TPW\TPW_SOUNDS\sounds\siren%1.ogg",ceil (random 4)]; // sirens
 				playsound3d [_sound,_house,false,getposasl _house,1.5,_pitch,250];
 				};
 			};

@@ -1,6 +1,6 @@
 
-   class customMusic01
+   class introMusic01
    {
-        name = "customTrack01";
+        name = "introMusic01";
         sound[] = {"media\music\intro\music.ogg", db+5,1};
     };

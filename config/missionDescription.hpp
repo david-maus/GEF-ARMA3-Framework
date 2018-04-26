@@ -2,19 +2,19 @@
 //------- Missionsbeschreibung -------
 
 // Author
-author                     = "David Maus - GEF";
+author                     = "David Maus";
 
 // Missionsname
-onLoadName                 = "Zero Dark Thirty - E02 - Look Up";
+onLoadName                 = "Zero Dark Thirty";
 
 // Missionsbeschreibung (wird unter dem LadeScreen angezeigt)
-onLoadMission              = "Hold breath";
+onLoadMission              = "Hold your breath";
 
 // Missions Ladebild (z.b. 2048px x 1024px)
 loadScreen                 = "media\images\loadScreen.jpg";
 
 // Missionsbeschreibung in der Missionsauswahl
-overviewText               = "Schalten Sie die Gruppierung aus und stellen Sie die B-Waffe sicher.";
+overviewText               = "Coming Soon";
 
 // Missionsbeschreibung um die Mission feizuschalten
 overviewTextLocked         = "";
@@ -50,5 +50,5 @@ class Header
 {
     gameType =  Coop;
     minPlayers =  1;
-    maxPlayers = 32;
+    maxPlayers = 12;
 };

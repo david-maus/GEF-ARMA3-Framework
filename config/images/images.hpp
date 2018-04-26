@@ -1,57 +1,97 @@
 
+class RscPicture
+{
+	type=0;
 
-	titles[]={};
+	access=0;
 
-	class customIntro01
+	idc=-1;
+
+	style=48;
+
+	colorBackground[]={0,0,0,0};
+
+	colorText[]={1,1,1,1};
+
+	font="PuristaMedium";
+
+	text="";
+
+	sizeEx=0;
+
+};
+
+
+	class introLogo
 
 	{
 
-	  	idd=-1;
+			idd=-1;
+			duration=1e+1000;
 
-	  	movingEnable=0;
+			movingEnable=0;
+			name="introLogo";
+			Controls[]={"introLogo"};
+			class introLogo: RscPicture
+			{
 
-	  	duration=4;
+				idc=9999;
 
-	  	fadein=1;
+				colorBackground[]={0,0,0,0};
 
-	  	fadeout=1.9;
+				colorText[]={1,1,1,1};
 
-	  	name="customIntro01";
+		  	  	text="media\images\introLogo01.jpg";
 
-	  	controls[]={"title1"};
+				style = 48 + 0x800; // ST_PICTURE + ST_KEEP_ASPECT_RATIO
+
+				x=safezoneX;
+
+		  	  	y=safezoneY;
+
+		  	  	w=safezoneW;
+
+		  	  	h=safezoneH;
+			};
 
 
-
-	  	class customTitle01
-
-		{
-
-			type=0;
-
-			idc=-1;
-
-			size=1;
-
-			colorBackground[]={0,0,0,0};
-
-			colorText[]={1,1,1,1};
-
-			font="PuristaMedium";
-
-	  	  	text="media\images\intro\introLogo2.jpg";
-
-			style = 48 + 0x800; // ST_PICTURE + ST_KEEP_ASPECT_RATIO
-
-	  	  	sizeEx=1;
-
-			x=0.25 * safezoneW + safezoneX;
-
-	  	  	y=0.25 * safezoneH + safezoneY;
-
-	  	  	w=0.5 * safezoneW;
-
-	  	  	h=0.5 * safezoneH;
 
 		};
 
-	};
+
+		class Default
+
+		{
+
+				idd=-1;
+				duration=1e+1000;
+				fadein=0;
+				fadeout=0;
+				movingEnable=0;
+				name="Default";
+				Controls[]={"Default"};
+				class Default: RscPicture
+				{
+
+					idc=9999;
+
+					colorBackground[]={0,0,0,0};
+
+					colorText[]={1,1,1,1};
+
+			  	  	text="";
+
+					style = 48 + 0x800; // ST_PICTURE + ST_KEEP_ASPECT_RATIO
+
+					x=safezoneX;
+
+			  	  	y=safezoneY;
+
+			  	  	w=safezoneW;
+
+			  	  	h=safezoneH;
+				};
+
+
+
+			};

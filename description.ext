@@ -51,7 +51,7 @@ class CfgMusic
 	tracks[]={};
 	#include "config\music\music.hpp"
 
-	#include "scripts\other\TPW\TPW_SOUNDS\music.hpp"
+	#include "media\TPW\TPW_SOUNDS\music.hpp"
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -60,6 +60,7 @@ class RscTitles
 {
 
 	#include "config\images\images.hpp"
+	#include "scripts\other\HelmAndGoggles_Extended_DM\overlays.hpp"
 
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +69,7 @@ class RscTitles
 class CfgSFX
 {
 	sounds[] = {};
-	#include "config\sfx\custom.hpp"
+	#include "config\sfx\sfx.hpp"
 	#include "config\sfx\sfxAmbientEastern.hpp"
 	#include "config\sfx\sfxAmbientTanoa.hpp"
 	#include "config\sfx\sfxAmbientIronFront.hpp"
@@ -79,12 +80,14 @@ class CfgSFX
 class CfgSounds
 {
 	sounds[] = {};
-	#include "config\sounds\custom.hpp"
+	#include "config\sounds\sounds.hpp"
 
-	#include "scripts\other\TPW\TPW_AMBIENCE\sounds.hpp"
+	#include "media\TPW\TPW_AMBIENCE\sounds.hpp"
 
 
-	#include "scripts\other\TPW\TPW_SOUNDS\sounds.hpp"
+	#include "media\TPW\TPW_SOUNDS\sounds.hpp"
+
+	#include "scripts\other\HALO_DM\sounds.hpp"
 
 	class NoSound
 	{
@@ -93,18 +96,6 @@ class CfgSounds
 	titles[] = {};
 	};
 };
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-//------- ACEC onfigs -------
-
-//#include "config\ACE\aceBasic.hpp"
-//#include "config\ACE\aceAdvanced.hpp"
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
-//#include "VCOMAI\defines.hpp"
-//#include "VCOMAI\DialogDefines.hpp"
-//#include "VCOMAI\dialogs.hpp"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////

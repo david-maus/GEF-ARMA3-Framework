@@ -5,21 +5,21 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=40;
+		nextID=111;
 	};
 	class MarkerIDProvider
 	{
-		nextID=1;
+		nextID=10;
 	};
 	class Camera
 	{
-		pos[]={8111.4502,33.115532,10128.438};
-		dir[]={-0.98119372,-0.17621841,0.079029642};
-		up[]={-0.17566898,0.98434633,0.014148776};
-		aside[]={0.080284245,4.6803234e-007,0.99678802};
+		pos[]={8122.4951,49.080029,10115.135};
+		dir[]={-0.79046416,-0.49646202,0.35889277};
+		up[]={-0.4520717,0.86804408,0.20525223};
+		aside[]={0.41343513,-5.5739656e-007,0.91059804};
 	};
 };
 binarizationWanted=0;
@@ -30,13 +30,25 @@ addons[]=
 	"A3_Soft_F_Gamma_Van_01",
 	"ace_refuel",
 	"A3_Ui_F",
-	"A3_Weapons_F_Ammoboxes"
+	"A3_Weapons_F_Ammoboxes",
+	"ace_gforces",
+	"ace_parachute",
+	"rhsusf_c_weapons",
+	"A3_Weapons_F_Launchers_Titan",
+	"ace_javelin",
+	"A3_Weapons_F",
+	"Kio_Balaclava",
+	"ace_goggles",
+	"ace_hearing",
+	"immersion_pops",
+	"murshun_cigs",
+	"zade_boc"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=15;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -79,6 +91,62 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="ace_parachute";
+			name="ACE3 - Parachute";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item7
+		{
+			className="rhsusf_c_weapons";
+			name="RHSUSF Weapons & Accessories";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item8
+		{
+			className="ace_javelin";
+			name="ACE3 - Javelin";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item9
+		{
+			className="Kio_Balaclava";
+			name="Kio_Balaclava";
+		};
+		class Item10
+		{
+			className="ace_goggles";
+			name="ACE3 - Goggles";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item11
+		{
+			className="ace_hearing";
+			name="ACE3 - Hearing";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item12
+		{
+			className="immersion_pops";
+			name="immersion_pops";
+		};
+		class Item13
+		{
+			className="murshun_cigs";
+			name="murshun_cigs";
+		};
+		class Item14
+		{
+			className="zade_boc";
+			name="zade_boc";
+			author="DerZade";
+		};
 	};
 };
 randomSeed=15151158;
@@ -88,7 +156,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category0
+	class Category1
 	{
 		name="Scenario";
 		class Attribute0
@@ -4406,174 +4474,38 @@ class Mission
 		month=6;
 		day=24;
 		hour=12;
-		minute=0;
+		minute=6;
 		startFogDecay=0.014;
 		forecastFogDecay=0.014;
-	};
-	class Entities
-	{
-		items=9;
-		class Item0
+		class CustomAttributes
 		{
-			dataType="Group";
-			side="West";
-			class Entities
+			name="Intel";
+			class Attribute0
 			{
-				items=1;
-				class Item0
+				property="Enh_disableGrass";
+				expression="if (((parseNumber _value) > 0) && !is3DEN) then {setTerrainGrid (parseNumber _value)}";
+				class Value
 				{
-					dataType="Object";
-					class PositionInfo
+					class data
 					{
-						position[]={8104.3403,29.544497,10131.472};
-						angles[]={0,4.5877895,0};
-					};
-					side="West";
-					flags=7;
-					class Attributes
-					{
-						isPlayer=1;
-					};
-					id=1;
-					type="B_soldier_AT_F";
-					class CustomAttributes
-					{
-						class Attribute0
+						class type
 						{
-							property="Enh_featureType";
-							expression="_this setFeatureType (parseNumber _value)";
-							class Value
+							type[]=
 							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="0";
-								};
+								"STRING"
 							};
 						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male01ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.01;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="Enh_ambientAnimParams";
-							expression="	if (is3DEN) then {_this call BIS_fnc_ambientAnim__terminate};	[_this,_value] spawn	{		sleep 0.1;		params ['_unit','_value'];		if (!(_value select 0 == '') && !isMultiplayer) then		{			[_unit,_value select 0,_value select 1,objNull,false,false] call BIS_fnc_ambientAnim;			waitUntil {sleep 0.1; ((behaviour _unit) == 'COMBAT') || (damage _unit > 0.6)};			_unit call BIS_fnc_ambientAnim__terminate;		};	}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"ARRAY"
-										};
-									};
-									class value
-									{
-										items=2;
-										class Item0
-										{
-											class data
-											{
-												class type
-												{
-													type[]=
-													{
-														"STRING"
-													};
-												};
-												value="";
-											};
-										};
-										class Item1
-										{
-											class data
-											{
-												class type
-												{
-													type[]=
-													{
-														"STRING"
-													};
-												};
-												value="ASIS";
-											};
-										};
-									};
-								};
-							};
-						};
-						class Attribute4
-						{
-							property="face";
-							expression="_this setface _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="GreekHead_A3_13";
-								};
-							};
-						};
-						nAttributes=5;
+						value="-1";
 					};
 				};
 			};
-			class Attributes
-			{
-			};
-			id=0;
+			nAttributes=1;
 		};
-		class Item1
+	};
+	class Entities
+	{
+		items=15;
+		class Item0
 		{
 			dataType="Group";
 			side="Civilian";
@@ -4644,7 +4576,7 @@ class Mission
 			};
 			id=2;
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Group";
 			side="Civilian";
@@ -4715,7 +4647,7 @@ class Mission
 			};
 			id=4;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Group";
 			side="Civilian";
@@ -4767,7 +4699,7 @@ class Mission
 			id=6;
 			atlOffset=0.00069236755;
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4808,7 +4740,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Marker";
 			position[]={8096.9399,0,10103.316};
@@ -4820,7 +4752,7 @@ class Mission
 			id=9;
 			atlOffset=-29.554895;
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Marker";
 			position[]={8085.6152,0,10126.913};
@@ -4832,7 +4764,7 @@ class Mission
 			id=36;
 			atlOffset=-29.572994;
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Marker";
 			position[]={8038.1992,0,10127.062};
@@ -4844,13 +4776,13 @@ class Mission
 			id=37;
 			atlOffset=-29.627792;
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={8101.0879,29.697861,10132.194};
-				angles[]={-0,0,6.2816415};
+				angles[]={0,0,6.2816415};
 			};
 			side="Empty";
 			flags=4;
@@ -4860,6 +4792,7 @@ class Mission
 			};
 			id=39;
 			type="Box_NATO_WpsLaunch_F";
+			atlOffset=-2.8610229e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4882,6 +4815,787 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item8
+		{
+			dataType="Marker";
+			position[]={7931.8481,29.615263,10193.422};
+			name="HaloStart";
+			text="HaloStart";
+			type="mil_start";
+			angle=104.67618;
+			id=88;
+		};
+		class Item9
+		{
+			dataType="Marker";
+			position[]={8022.4082,29.610001,10166.053};
+			name="HaloTarget";
+			text="HaloTarget";
+			type="mil_objective";
+			id=89;
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8102.27,29.547806,10127.591};
+						angles[]={0,4.7526536,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						name="asd_2";
+						isPlayer=1;
+						isPlayable=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="rhs_weap_m4a1_blockII_M203_d";
+								class primaryMuzzleMag
+								{
+									name="rhs_mag_30Rnd_556x45_M855_Stanag";
+									ammoLeft=30;
+								};
+							};
+							class secondaryWeapon
+							{
+								name="launch_O_Titan_short_F";
+								class primaryMuzzleMag
+								{
+									name="Titan_AT";
+									ammoLeft=1;
+								};
+							};
+							class uniform
+							{
+								typeName="U_O_Protagonist_VR";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=4;
+									class Item0
+									{
+										name="immersion_pops_poppack";
+										count=3;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="murshun_cigs_cigpack";
+										count=1;
+										ammoLeft=20;
+									};
+									class Item2
+									{
+										name="murshun_cigs_lighter";
+										count=1;
+										ammoLeft=100;
+									};
+									class Item3
+									{
+										name="rhs_mag_30Rnd_556x45_M855_Stanag";
+										count=1;
+										ammoLeft=30;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_RebreatherB";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="TRYK_B_Medbag_BK";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="Titan_AT";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+							};
+							compass="ItemCompass";
+							watch="ACE_Altimeter";
+							goggles="TRYK_kio_balaclava_BLK";
+							headgear="H_PilotHelmetFighter_B";
+						};
+					};
+					id=98;
+					type="B_Pilot_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="Enh_featureType";
+							expression="_this setFeatureType (parseNumber _value)";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="0";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="Enh_ambientAnimParams";
+							expression="	if (is3DEN) then {_this call BIS_fnc_ambientAnim__terminate};	[_this,_value] spawn	{		sleep 0.1;		params ['_unit','_value'];		if (!(_value select 0 == '') && !isMultiplayer) then		{			[_unit,_value select 0,_value select 1,objNull,false,false] call BIS_fnc_ambientAnim;			waitUntil {sleep 0.1; ((behaviour _unit) == 'COMBAT') || (damage _unit > 0.6)};			_unit call BIS_fnc_ambientAnim__terminate;		};	}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"ARRAY"
+										};
+									};
+									class value
+									{
+										items=2;
+										class Item0
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="";
+											};
+										};
+										class Item1
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="ASIS";
+											};
+										};
+									};
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8103.7388,29.545456,10129.813};
+						angles[]={0,4.7526536,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						name="asd";
+						isPlayable=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="rhs_weap_m4a1_blockII_M203_d";
+								class primaryMuzzleMag
+								{
+									name="rhs_mag_30Rnd_556x45_M855_Stanag";
+									ammoLeft=30;
+								};
+							};
+							class secondaryWeapon
+							{
+								name="launch_O_Titan_short_F";
+								class primaryMuzzleMag
+								{
+									name="Titan_AT";
+									ammoLeft=1;
+								};
+							};
+							class uniform
+							{
+								typeName="U_O_Protagonist_VR";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=4;
+									class Item0
+									{
+										name="immersion_pops_poppack";
+										count=3;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="murshun_cigs_cigpack";
+										count=1;
+										ammoLeft=20;
+									};
+									class Item2
+									{
+										name="murshun_cigs_lighter";
+										count=1;
+										ammoLeft=100;
+									};
+									class Item3
+									{
+										name="rhs_mag_30Rnd_556x45_M855_Stanag";
+										count=1;
+										ammoLeft=30;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_RebreatherB";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="TRYK_B_Medbag_BK";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="Titan_AT";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+							};
+							compass="ItemCompass";
+							watch="ACE_Altimeter";
+							goggles="TRYK_kio_balaclava_BLK";
+							headgear="H_PilotHelmetFighter_B";
+						};
+					};
+					id=71;
+					type="B_Pilot_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="Enh_featureType";
+							expression="_this setFeatureType (parseNumber _value)";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="0";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="Enh_ambientAnimParams";
+							expression="	if (is3DEN) then {_this call BIS_fnc_ambientAnim__terminate};	[_this,_value] spawn	{		sleep 0.1;		params ['_unit','_value'];		if (!(_value select 0 == '') && !isMultiplayer) then		{			[_unit,_value select 0,_value select 1,objNull,false,false] call BIS_fnc_ambientAnim;			waitUntil {sleep 0.1; ((behaviour _unit) == 'COMBAT') || (damage _unit > 0.6)};			_unit call BIS_fnc_ambientAnim__terminate;		};	}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"ARRAY"
+										};
+									};
+									class value
+									{
+										items=2;
+										class Item0
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="";
+											};
+										};
+										class Item1
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="ASIS";
+											};
+										};
+									};
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8101.5,29.549038,10129.977};
+						angles[]={0,4.7526536,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						name="asd_1";
+						isPlayable=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="rhs_weap_m4a1_blockII_M203_d";
+								class primaryMuzzleMag
+								{
+									name="rhs_mag_30Rnd_556x45_M855_Stanag";
+									ammoLeft=30;
+								};
+							};
+							class secondaryWeapon
+							{
+								name="launch_O_Titan_short_F";
+								class primaryMuzzleMag
+								{
+									name="Titan_AT";
+									ammoLeft=1;
+								};
+							};
+							class uniform
+							{
+								typeName="U_O_Protagonist_VR";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=4;
+									class Item0
+									{
+										name="immersion_pops_poppack";
+										count=3;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="murshun_cigs_cigpack";
+										count=1;
+										ammoLeft=20;
+									};
+									class Item2
+									{
+										name="murshun_cigs_lighter";
+										count=1;
+										ammoLeft=100;
+									};
+									class Item3
+									{
+										name="rhs_mag_30Rnd_556x45_M855_Stanag";
+										count=1;
+										ammoLeft=30;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_RebreatherB";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="TRYK_B_Medbag_BK";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="Titan_AT";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+							};
+							compass="ItemCompass";
+							watch="ACE_Altimeter";
+							goggles="TRYK_kio_balaclava_BLK";
+							headgear="H_PilotHelmetFighter_B";
+						};
+					};
+					id=96;
+					type="B_Pilot_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="Enh_featureType";
+							expression="_this setFeatureType (parseNumber _value)";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="0";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="Enh_ambientAnimParams";
+							expression="	if (is3DEN) then {_this call BIS_fnc_ambientAnim__terminate};	[_this,_value] spawn	{		sleep 0.1;		params ['_unit','_value'];		if (!(_value select 0 == '') && !isMultiplayer) then		{			[_unit,_value select 0,_value select 1,objNull,false,false] call BIS_fnc_ambientAnim;			waitUntil {sleep 0.1; ((behaviour _unit) == 'COMBAT') || (damage _unit > 0.6)};			_unit call BIS_fnc_ambientAnim__terminate;		};	}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"ARRAY"
+										};
+									};
+									class value
+									{
+										items=2;
+										class Item0
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="";
+											};
+										};
+										class Item1
+										{
+											class data
+											{
+												class type
+												{
+													type[]=
+													{
+														"STRING"
+													};
+												};
+												value="ASIS";
+											};
+										};
+									};
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=97;
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={8069.3711,29.589939,10148.834};
+			name="GasZone_1";
+			markerType="ELLIPSE";
+			type="ellipse";
+			a=15;
+			b=15;
+			id=99;
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8105.3657,29.541414,10127.315};
+				angles[]={0,0,6.2816415};
+			};
+			id=100;
+			type="zade_boc_moduleOnChest";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="zade_boc_moduleOnChest_classname";
+					expression="_this setVariable ['classname',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="B_Parachute";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="zade_boc_moduleOnChest_Units";
+					expression="_this setVariable ['Units',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="1";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="zade_boc_moduleOnChest_delay";
+					expression="_this setVariable ['delay',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item13
+		{
+			dataType="Marker";
+			position[]={8069.6011,29.615986,10090.818};
+			name="GasZone_2";
+			markerType="ELLIPSE";
+			type="ellipse";
+			a=15;
+			b=15;
+			id=104;
+		};
+		class Item14
+		{
+			dataType="Marker";
+			position[]={8037.9961,29.628,10126.92};
+			name="GasZoneDynamic_1";
+			markerType="ELLIPSE";
+			type="ellipse";
+			a=8;
+			b=8;
+			id=105;
+			atlOffset=-6.6757202e-005;
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=1;
+		};
+		class Links
+		{
+			items=1;
+			class Item0
+			{
+				linkID=0;
+				item0=100;
+				item1=98;
+				class CustomData
+				{
+					type="Sync";
+				};
 			};
 		};
 	};

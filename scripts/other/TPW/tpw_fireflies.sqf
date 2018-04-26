@@ -138,7 +138,7 @@ tpw_firefly_fnc_spawnhousefly =
 
 			if (random 1 > 0.9) then
 				{
-				private _buzz = format [root + "scripts\other\TPW\TPW_SOUNDS\sounds\fly%1.ogg",ceil (random 8)];
+				private _buzz = format [root + "media\TPW\TPW_SOUNDS\\sounds\fly%1.ogg",ceil (random 8)];
 				playsound3d [_buzz,_model,false,getposasl _model,0.4,0.9 + (random 0.2),20];
 				};
 
@@ -159,7 +159,7 @@ tpw_firefly_fnc_playerflies =
 	if (daytime > tpw_firefly_dusktime || daytime < tpw_firefly_dawntime) exitwith {};
 	if (random 1 > 0.9) then
 		{
-		private _buzz = format [root + "scripts\other\TPW\TPW_SOUNDS\sounds\fly%1.ogg",ceil (random 8)];
+		private _buzz = format [root + "media\TPW\TPW_SOUNDS\\sounds\fly%1.ogg",ceil (random 8)];
 		playsound3d [_buzz,player,false,eyepos player vectoradd [-0.5 + random 1,-0.5 + random 1, -0.5 + random 1],random 0.3,0.9 + random 0.2,20];
 		};
 	};
@@ -170,7 +170,7 @@ tpw_firefly_fnc_playermozzies =
 	if (daytime < tpw_firefly_dusktime && {daytime > tpw_firefly_dawntime}) exitwith {};
 	if (random 1 > 0.9) then
 		{
-		private _buzz = format [root + "scripts\other\TPW\TPW_SOUNDS\sounds\mozzie%1.ogg",ceil (random 4)];
+		private _buzz = format [root + "media\TPW\TPW_SOUNDS\\sounds\mozzie%1.ogg",ceil (random 4)];
 		playsound3d [_buzz,player,false,eyepos player vectoradd [-0.5 + random 1,-0.5 + random 1, -0.5 + random 1],random 0.1,0.9 + random 0.2,20];
 		};
 	};
