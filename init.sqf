@@ -101,7 +101,7 @@ if (briefing == 1) then
 /////////////////// Intro
 if (intro == 1) then
 {
- 
+
 [] execVM "mission\intro.sqf";
 
 
@@ -176,7 +176,7 @@ if (timeMultiply == 1) then
 /////////// ["Name der Kiste mit Zahl",Anzahl der Kisten)] execVM "scripts\other\vArsenalMaker.sqf";
 if (vArsenalMaker == 1) then
 {
-["vArsenal_",vArsenalMakerCount] execVM "scripts\other\vArsenalMaker.sqf";
+["vArsenal_"] execVM "scripts\other\vArsenalMaker.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -187,7 +187,7 @@ if (vArsenalMaker == 1) then
 /////////// ["Name der Kiste mit Zahl",Anzahl der Kisten)] execVM "scripts\other\vArsenalMaker.sqf";
 if (DeadBodyMaker == 1) then
 {
-["DeadBody_",DeadBodyMakerCount] execVM "scripts\other\DeadBodyMaker.sqf";
+["DeadBody_"] execVM "scripts\other\DeadBodyMaker.sqf";
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 

@@ -6,7 +6,7 @@
 BigLoadscreen              = 0;                     // Aktiviert einen großen Dummy Loadscreen nach dem joinen
 BigLoadscreenTime          = 10;                    // Dauer des Big LoadScreens
 briefing                   = 1;                     // Aktiviert das Briefing
-intro                      = 1;                     // Aktiviert das Intro
+intro                      = 0;                     // Aktiviert das Intro
 mission                    = 1;                     // Führt alles in der mission.sqf aus
 postEffects                = 0;                     // Aktiviert die Post Effekte
 
@@ -35,7 +35,7 @@ GasZone                    = 1;                     // Aktiviert das GasSkript
 GasZoneMarkerName          = 'GasZone_';            // GasZone Markername ohne Nummer - Hier ist sofort Gas - Beispiel im Editor: GasZone_1
 GasZoneDynamicMarkerName   = 'GasZoneDynamic_';     // GasZoneDynamic Markername ohne Nummer - Hier kann Gas während der Mission entstehen - Beispiel im Editor: GasZone_1 - Aktivierung:
 
-HaloStart                  = 1;                     // Aktiviert den Halo Start in der Mission
+HaloStart                  = 0;                     // Aktiviert den Halo Start in der Mission
 HaloStartName              = 'HaloStart';           // Markername für den Halo Start
 HaloTargetName             = 'HaloTarget';          // Markername für die Landezone (HUD Overlay im Helm)
 HaloStartHeight            = 1500;                  // Halo Start Höhe in Meter - ASL
@@ -75,10 +75,8 @@ SafeZoneMapObjs            = 1;                     // Aktiviert 'SafeZone_1,2,3
 //------- Helper -------
 
 vArsenalMaker              = 1;                     // ACE Arsenal für Objekte mit namen "vArsenal_1,2,3,4,5 etc."
-vArsenalMakerCount         = 10;                    // Anzahl der kisten. Nur erhöhen wenn benötigt, kann sonst so bleiben.
 
 DeadBodyMaker              = 1;                     // Tote für Units mit Namen "DeadBody_1,2,3,4,5 etc."
-DeadBodyMakerCount         = 20;                    // Anzahl der units. Nur erhöhen wenn benötigt, kann sonst so bleiben.
 
 aslAll                     = 1;                     // Advanced SlingLoad Mod - Man kann alles slingloaden
 

@@ -3,27 +3,20 @@
 if (!isServer) exitWith {};
 
 _arsenalName = _this select 0;
-_arsenalCount = _this select 1;
 
 
-_check = _arsenalName + str 1;
 
 
-if (isNil _check) then {
 
-}
-else
 {
-    for "_i" from 1 to _arsenalCount do {
-        _car = missionNamespace getVariable (_arsenalName + str _i);
-        _checkFor = _arsenalName + str _i;
+  _unitName = vehicleVarName _x;
 
-        if (isNil _checkFor) exitWith {};
+  if (_unitName find _arsenalName >= 0 ) then {
 
-        // _car addaction ["Open Virtual Arsenal", { ["Open",true] call BIS_fnc_arsenal; }];
-        [_car, true] call ace_arsenal_fnc_initBox;
+      // _x addaction ["Open Virtual Arsenal", { ["Open",true] call BIS_fnc_arsenal; }];
+      [_x, true] call ace_arsenal_fnc_initBox;
 
 
+  };
 
-    };
-};
+} forEach (allMissionObjects "");

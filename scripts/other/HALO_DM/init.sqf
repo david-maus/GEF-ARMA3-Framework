@@ -116,7 +116,7 @@ if (isServer) then
 
 
 
-
+      sleep 1;
       {
           //_x moveInCargo [haloPlane, 1];
           _x attachTo [haloPlane,[0, 4, 0]];
