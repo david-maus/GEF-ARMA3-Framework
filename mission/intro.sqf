@@ -28,15 +28,13 @@ onPreloadFinished {
         sleep 7;
 
 
-        titleRsc ["introLogo", "PLAIN", 3];
+
+
+        titleText ["GEF-GAMING.DE PRESENTS","PLAIN", 3];
         titleFadeOut 3;
         sleep 12;
 
-        titleText ["You don't have as much time with this line, but it is still quite lengthy and ever so informative.","PLAIN", 3];
-        titleFadeOut 3;
-        sleep 12;
-
-        titleText ["But this line.\n\nThis line will make you pause.  This line will give you time to...\n\nthink.","PLAIN", 3];
+        titleText ["A COOP MISSION\nBY DAVID MAUS","PLAIN", 3];
         titleFadeOut 3;
         sleep 12;
 
@@ -47,9 +45,9 @@ onPreloadFinished {
         [ introDate, "<t size='1.0' font='PuristaMedium'>%1</t>", 0 ],
         [ introTime, "<t size='1.0' font='PuristaBold'>%1</t><br/>", 5 ],
 
-        [ "South of Galati", "<t size='0.9' font='PuristaBold'>%1</t><br/>", 5 ],
+        [ "30.000 Feet above LZ", "<t size='0.9' font='PuristaBold'>%1</t><br/>", 5 ],
 
-        [ "Central Altis", "<t size='0.9'>%1</t><br/>", 30 ]
+        [ "Finland", "<t size='0.9'>%1</t><br/>", 30 ]
 
         ],
         -safezoneX,

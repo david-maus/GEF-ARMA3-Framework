@@ -4529,7 +4529,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8069.7319,29.600519,10124.235};
+						position[]={8088.5933,29.569689,10124.812};
 					};
 					side="Civilian";
 					flags=7;
@@ -4600,7 +4600,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8069.4414,29.604237,10120.17};
+						position[]={8085.4019,29.574795,10123.42};
 					};
 					side="Civilian";
 					flags=7;

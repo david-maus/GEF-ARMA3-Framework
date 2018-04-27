@@ -36,8 +36,8 @@ _haloWaitTime = _this select 3;
 
 
 
-
-
+PlayerReady = false;
+haloCargoOpen = false;
 
 // Server //
 if (isServer) then
@@ -54,6 +54,7 @@ if (isServer) then
 
              haloStartPos = [getMarkerPos _x select 0, getMarkerPos _x select 1, _haloStartHeight];
              haloStartDir = markerDir _x;
+             publicVariable "haloStartDir";
 
       };
       if (toString _a find _haloTarget >= 0 ) then {
@@ -120,7 +121,7 @@ if (isServer) then
       {
           if (_forEachIndex == 0) then {
               //_x moveInCargo [haloPlane, 1];
-              _x attachTo [haloPlane,[0, 4, 0]];
+              _x attachTo [haloPlane,[0, 3.8, 0]];
               detach _x;
               _x setDir haloStartDir;
           };
@@ -175,6 +176,8 @@ if (isServer) then
 
       [_haloWaitTime, _planeLightRED_L, _planeLightRED_R] spawn {
           sleep (_this select 0);
+          haloCargoOpen = true;
+          publicVariable "haloCargoOpen";
           haloPlane animate ["ramp_bottom", 1];
       	  haloPlane animate ["ramp_top", 1];
           haloPlane say3D "CargoDoor_Open_HALO";
@@ -210,12 +213,21 @@ if (!isDedicated && hasInterface) then
 
     publicVariable "PlayerReady";
     publicVariable "haloTarget";
+    publicVariable "haloStartDir";
+    publicVariable "haloCargoOpen";
 
     waitUntil {PlayerReady};
     sleep 1;
     player playActionNow "PlayerStand";
     sleep 2;
     player action ["WeaponOnBack", player];
+    sleep 1;
+    player setDir haloStartDir;
+
+    waitUntil {haloCargoOpen};
+    addCamShake [3, 10, 25]; 	//
+
+
     //waitUntil {((velocity player select 2 < -3))};
     waitUntil {((animationState player == "HaloFreeFall_non") || (animationState player == "HaloFreeFall_F") || (animationState player == "HaloFreeFall_B"))};
 
@@ -286,10 +298,18 @@ if (!isDedicated && hasInterface) then
       //addCamShake [10, 20, 12];
     };
 
+    sleep 3;
+    500 cutText ["", "BLACK FADED", 999];
+    titleRsc ["introLogo", "PLAIN", 3];
+    titleFadeOut 3;
+    sleep 12;
+    500 cutText ["", "BLACK IN", 8];
+
     waitUntil {getPosATL player select 2 < 350 || animationState player == "para_pilot"};
     if (!(animationState player == "para_pilot")) then {
             player action ["openParachute"];
     };
+
 
 
     waitUntil {animationState player == "para_pilot"};
