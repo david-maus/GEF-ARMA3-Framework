@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8132.2793,65.850327,10114.005};
-		dir[]={-0.77031773,-0.46899867,0.43230644};
-		up[]={-0.40902007,0.88317883,0.22954486};
-		aside[]={0.48945791,1.0641525e-006,0.87215006};
+		pos[]={8111.7847,33.510323,10124.769};
+		dir[]={-0.92594993,-0.28694129,0.24607205};
+		up[]={-0.27737212,0.95793307,0.073713116};
+		aside[]={0.25686833,1.3671088e-006,0.96656615};
 	};
 };
 binarizationWanted=0;
@@ -4868,7 +4868,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8082.8682,29.57885,10128.299};
+						position[]={8102.4014,29.547596,10126.863};
 						angles[]={0,4.7526536,0};
 					};
 					side="West";
@@ -5079,7 +5079,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8103.7388,29.545456,10129.813};
+						position[]={8102.8442,29.546886,10129.104};
 						angles[]={0,4.7526536,0};
 					};
 					side="West";
@@ -5286,7 +5286,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8072.5977,29.591532,10142.237};
+						position[]={8102.4531,29.547514,10124.438};
 						angles[]={0,4.7526536,0};
 					};
 					side="West";
@@ -7021,11 +7021,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8099.8789,29.550098,10125.817};
+				position[]={8105.2114,29.541662,10125.829};
+				angles[]={-0,0,6.2816415};
 			};
 			id=132;
 			type="zade_boc_moduleAdd";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
