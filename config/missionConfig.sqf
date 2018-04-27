@@ -6,7 +6,7 @@
 BigLoadscreen              = 0;                     // Aktiviert einen großen Dummy Loadscreen nach dem joinen
 BigLoadscreenTime          = 10;                    // Dauer des Big LoadScreens
 briefing                   = 1;                     // Aktiviert das Briefing
-intro                      = 1;                     // Aktiviert das Intro
+intro                      = 0;                     // Aktiviert das Intro
 mission                    = 1;                     // Führt alles in der mission.sqf aus
 postEffects                = 0;                     // Aktiviert die Post Effekte
 
@@ -35,7 +35,7 @@ GasZone                    = 1;                     // Aktiviert das GasSkript
 GasZoneMarkerName          = 'GasZone_';            // GasZone Markername ohne Nummer - Hier ist sofort Gas - Beispiel im Editor: GasZone_1
 GasZoneDynamicMarkerName   = 'GasZoneDynamic_';     // GasZoneDynamic Markername ohne Nummer - Hier kann Gas während der Mission entstehen - Beispiel im Editor: GasZone_1 - Aktivierung:
 
-HaloStart                  = 1;                     // Aktiviert den Halo Start in der Mission
+HaloStart                  = 0;                     // Aktiviert den Halo Start in der Mission
 HaloStartName              = 'HaloStart';           // Markername für den Halo Start
 HaloTargetName             = 'HaloTarget';          // Markername für die Landezone (HUD Overlay im Helm)
 HaloStartHeight            = 5000;                  // Halo Start Höhe in Meter - ASL
@@ -97,6 +97,7 @@ taskForceRadioConfig       = 1;                     // Lade die TaskForceRadio C
 //------- Debug und Co -------
 
 postProcessEditor          = 0;                     // Postprecess Editor aktivieren, sollte nur beim Missionsbau an sein um PostProcess Effekte zu bekommen
+Teleport                   = 1;                     // Aktiviert teleport per map (alt + left click)
 
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////

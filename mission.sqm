@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8114.6733,45.423038,10119.06};
-		dir[]={-0.76795298,-0.43791983,0.46760583};
-		up[]={-0.37408084,0.89898664,0.22777848};
-		aside[]={0.5201239,-3.521709e-007,0.8542034};
+		pos[]={8132.2793,65.850327,10114.005};
+		dir[]={-0.77031773,-0.46899867,0.43230644};
+		up[]={-0.40902007,0.88317883,0.22954486};
+		aside[]={0.48945791,1.0641525e-006,0.87215006};
 	};
 };
 binarizationWanted=0;
@@ -37,6 +37,7 @@ addons[]=
 	"A3_Weapons_F_Launchers_Titan",
 	"ace_javelin",
 	"A3_Weapons_F",
+	"task_force_radio_items",
 	"Kio_Balaclava",
 	"ace_goggles",
 	"ace_hearing",
@@ -50,7 +51,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=17;
+		items=18;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -116,44 +117,51 @@ class AddonsMetaData
 		};
 		class Item9
 		{
+			className="task_force_radio_items";
+			name="task_force_radio_items";
+			author="[TF]Nkey";
+			url="https://github.com/michail-nikolaev/task-force-arma-3-radio";
+		};
+		class Item10
+		{
 			className="Kio_Balaclava";
 			name="Kio_Balaclava";
 		};
-		class Item10
+		class Item11
 		{
 			className="ace_goggles";
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item11
+		class Item12
 		{
 			className="ace_hearing";
 			name="ACE3 - Hearing";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item12
+		class Item13
 		{
 			className="immersion_pops";
 			name="immersion_pops";
 		};
-		class Item13
+		class Item14
 		{
 			className="murshun_cigs";
 			name="murshun_cigs";
 		};
-		class Item14
+		class Item15
 		{
 			className="Shemaghs";
 			name="Shemaghs";
 		};
-		class Item15
+		class Item16
 		{
 			className="CUP_Creatures_Military_USMC";
 			name="CUP_Creatures_Military_USMC";
 		};
-		class Item16
+		class Item17
 		{
 			className="zade_boc";
 			name="zade_boc";
@@ -4943,8 +4951,11 @@ class Mission
 									};
 								};
 							};
+							map="ItemMap";
 							compass="ItemCompass";
 							watch="ACE_Altimeter";
+							radio="tf_anprc152";
+							gps="ItemGPS";
 							goggles="TRYK_kio_balaclava_BLK";
 							headgear="H_PilotHelmetFighter_B";
 						};
