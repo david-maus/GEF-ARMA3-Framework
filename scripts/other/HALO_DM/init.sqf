@@ -1,4 +1,4 @@
-
+call compile preprocessFileLineNumbers "scripts\other\SFS\SFS_inlineFncs.sqf";
 // All Headgear to use as Gasmask
 INS_jumpMaskH = [
                 "H_CrewHelmetHeli_B",
@@ -304,8 +304,12 @@ if (!isDedicated && hasInterface) then
     titleFadeOut 3;
     sleep 12;
     500 cutText ["", "BLACK IN", 8];
+    addCamShake [10, 400, 30];
 
-    waitUntil {getPosATL player select 2 < 350 || animationState player == "para_pilot"};
+    waitUntil {getPosATL player select 2 < 3000};
+    [haloTarget,"aerial",150,30,"RED"] execVM "scripts\other\SFS\SFS_init.sqf";
+
+    waitUntil {getPosATL player select 2 < 250 || animationState player == "para_pilot"};
     if (!(animationState player == "para_pilot")) then {
             player action ["openParachute"];
     };
@@ -313,6 +317,7 @@ if (!isDedicated && hasInterface) then
 
 
     waitUntil {animationState player == "para_pilot"};
+    resetCamShake;
     player allowDamage false;
     // Parachute Opening EFX & Sound
     33 cutText ["", "BLACK IN", 2];
@@ -342,18 +347,24 @@ if (!isDedicated && hasInterface) then
     playSound "heartbeat";
 
     //W-I-P
-    while {(getPos player select 2) > 5} do {
+    [] spawn {
+        while {(getPos player select 2) > 5} do {
         playSound "para_pilot";
         addCamShake [3, 4, 2];
         sleep 4;
     };
+        };
+
 
     waitUntil {isTouchingGround (vehicle player)};
 
     player allowDamage true;
     deleteVehicle smoke;
 
-    deleteVehicle _jumpLightRED;
+
     smokeCreate = false;
+    detach _jumpLightRED;
+    sleep 300;
+    deleteVehicle _jumpLightRED;
 
 };

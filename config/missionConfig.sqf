@@ -38,7 +38,7 @@ GasZoneDynamicMarkerName   = 'GasZoneDynamic_';     // GasZoneDynamic Markername
 HaloStart                  = 0;                     // Aktiviert den Halo Start in der Mission
 HaloStartName              = 'HaloStart';           // Markername für den Halo Start
 HaloTargetName             = 'HaloTarget';          // Markername für die Landezone (HUD Overlay im Helm)
-HaloStartHeight            = 5000;                  // Halo Start Höhe in Meter - ASL
+HaloStartHeight            = 12000;                  // Halo Start Höhe in Meter - ASL
 HaloCargoOpenTime          = 35;                    // Sek. - Zeit bis die Cargotür öffnet und Green Light erscheint
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ nvgOffLightOn              = 0;                     // Entfernt alle NVGs und IR
 /////////////////////////////////////////////////////////////////////////////////////////
 //------- Intel -------
 
-timeMultiply               = 1;                     // Aktiviert die custom Tag / Nacht Zeit
+timeMultiply               = 0;                     // Aktiviert die custom Tag / Nacht Zeit
 dayMultiply                = 4;                     // Geschwindigkeit des Tages - 4 Entspricht 3 echten Stunden
 nightMultiply              = 12;                    // Geschwindkeit der Nacht - 12 Entspricht 1 echten Stunde
 
@@ -66,7 +66,7 @@ fogLimiterMax              = 0.2;                   // Maximaler Fog
 /////////////////////////////////////////////////////////////////////////////////////////
 //------- Environment -------
 
-tpw                        = 1;                     // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
+tpw                        = 0;                     // Aktiviert TPW (Ambient Sound & Music, Radiochatter, Fireflies)
 dynamicFurniture           = 0;                     // Activates dynamic furniture script, Dynamische Möbeleinrichtung in Häusern
 SafeZoneMapObjs            = 1;                     // Aktiviert 'SafeZone_1,2,3,4,5 etc.' Marker. Hausobjekte können nicht zerstört werden
 
@@ -77,6 +77,8 @@ SafeZoneMapObjs            = 1;                     // Aktiviert 'SafeZone_1,2,3
 vArsenalMaker              = 1;                     // ACE Arsenal für Objekte mit namen "vArsenal_1,2,3,4,5 etc."
 
 DeadBodyMaker              = 1;                     // Tote für Units mit Namen "DeadBody_1,2,3,4,5 etc."
+
+LightSourceMaker           = 1;
 
 aslAll                     = 1;                     // Advanced SlingLoad Mod - Man kann alles slingloaden
 
@@ -96,7 +98,7 @@ taskForceRadioConfig       = 1;                     // Lade die TaskForceRadio C
 /////////////////////////////////////////////////////////////////////////////////////////
 //------- Debug und Co -------
 
-postProcessEditor          = 0;                     // Postprecess Editor aktivieren, sollte nur beim Missionsbau an sein um PostProcess Effekte zu bekommen
+postProcessEditor          = 1;                     // Postprecess Editor aktivieren, sollte nur beim Missionsbau an sein um PostProcess Effekte zu bekommen
 Teleport                   = 1;                     // Aktiviert teleport per map (alt + left click)
 
 /////////////////////////////////////////////////////////////////////////////////////////

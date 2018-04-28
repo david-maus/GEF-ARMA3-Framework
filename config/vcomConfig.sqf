@@ -15,7 +15,7 @@ NOAI_FOR_PLAYERLEADERS = 1;
 //Will AI garrison static weapons nearby?
 VCOM_STATICGARRISON = 1;
 //How far can the AI hear gunshots from?
-VCOM_HEARINGDISTANCE = 500;
+VCOM_HEARINGDISTANCE = 100;
 //Should AI be able to call for artillery. 1 = YES 0 = NO
 VCOM_Artillery = 0;
 //What should the dispersion be for AI artillery rounds? In meters.
@@ -27,7 +27,7 @@ VCOM_NOPATHING = false;
 //Should AI use smoke grenades? Besides default A3 behavior?
 VCOM_USESMOKE = true;
 //Chance of AI using grenades
-VCOM_GRENADECHANCE = 20;
+VCOM_GRENADECHANCE = 30;
 //Should the AI lay mines?
 VCOM_MineLaying = false;
 //Chance of AI to lay a mine.
@@ -35,7 +35,7 @@ VCOM_MineLayChance = 40;
 //AI will automatically disembark from vehicles when in combat.
 VCOM_AIDisembark = true;
 //How low should an AI's mag count be for them to consider finding more ammo? This DOES NOT include the mag loaded in the gun already.
-VCOM_AIMagLimit = 2;
+VCOM_AIMagLimit = 1;
 //Should the rain impact accuracy of AI? DEFAULT = true;
 VCOM_RainImpact = true;
 //How much should rain impact the accuracy of AI? Default = 3. Default formula is -> _WeatherCheck = (rain)/3; "rain" is on a scale from 0 to 1. 1 Being very intense rain.
@@ -61,9 +61,9 @@ VCOM_LeaderExecuteLimit = 15;
 //How low should the FPS be, before Vcom pauses simulation. This will not disable simulation on AI - they will run default Bohemia AI.
 VCOM_FPSFreeze = 10;
 //Should the AI consider stealing/using empty ground vehicles?
-VCOM_VehicleUse = true;
+VCOM_VehicleUse = false;
 //Should the AI notice IR lasers?
-VCOM_IRLaser = true;
+VCOM_IRLaser = false;
 //The distance, in meters, of how far AI will look for empty unlocked vehicles to steal.
 VCOM_AIDISTANCEVEHPATH = 150;
 
@@ -74,9 +74,9 @@ VCOM_SideBasedMovement = [WEST,EAST,RESISTANCE];
 //VCOM_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
 VCOM_SideBasedExecution = [WEST,EAST,RESISTANCE];
 //Distance AI will respond to call of help from each other
-VCOM_Unit_AIWarnDistance = 1000;
+VCOM_Unit_AIWarnDistance = 100;
 //Distance the AI will attempt to flank around the enemy. I.E. How far off a waypoint, or around the enemy squad, the AI are willing to go in combat.
-VCOM_WaypointDistance = 300;
+VCOM_WaypointDistance = 100;
 //Switching this to true will enable side specific skill settings. Side specific skills get added IN ADDITION TO the normal ranked skill.
 VCOM_SIDESPECIFIC = false;
 //Switching this to true will enable classname specific skill settings. VCOM_SIDESPECIFIC and VCOM_CLASSNAMESPECIFIC can both be true, however any units in the VCOM_CLASSNAMESPECIFIC array are given priority over everything else.

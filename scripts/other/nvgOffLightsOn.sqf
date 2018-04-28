@@ -1,13 +1,13 @@
 
 if (!isServer) exitWith {};
 
-_nvgofflightson=true;										
+_nvgofflightson=true;
 
 while {_nvgofflightson} do {
 
 {
 
-    if((side _x == opfor) && ((leader group _x) != _x)) then { // if you're a baddie and not your own group leader
+    if(((side _x == opfor) || (side _x == independent)) && ((leader group _x) != _x)) then { // if you're a baddie and not your own group leader
 
         _x unassignItem "NVGoggles";
 

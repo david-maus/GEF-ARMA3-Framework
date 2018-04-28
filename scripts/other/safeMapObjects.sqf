@@ -24,9 +24,9 @@ if (isServer) then
              {
          		_x allowdamage false;
          	}
-         	forEach nearestTerrainObjects [_x, ["House"], _markerSize];
+         	forEach nearestTerrainObjects [getMarkerPos _x, ["House"], _markerSize];
 
-      };
+        };
 
     } forEach allMapMarkers;
 
